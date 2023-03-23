@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Http\Livewire\Dashboard\Admin;
+
+use Livewire\Component;
+
+class BookingManageView extends Component
+{
+    public function render()
+    {
+        return view('livewire.dashboard.admin.booking-manage-view');
+    }
+}

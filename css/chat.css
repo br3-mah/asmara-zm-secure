@@ -1,0 +1,330 @@
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+.chat_button{
+  color:black;
+  margin:3px 5px;
+  padding:5px 10px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.3);
+  border: none;
+  font-weight:bold;
+  font-size: 0.7em;
+  background-color:#EC801E ;
+  border-radius: 50px;
+
+}
+.selection_area{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding:5px;
+  background-color:#FFFFFF;
+  width:100%;
+}
+
+.user_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.3);
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  margin-left:10px ;
+  padding:5px 15px;
+  font-size: 0.9em;
+  color:white;
+  font-weight: bold;
+  border-radius: 100%;
+  background-color:#1d1c1b ;
+}
+.user_text{
+  display: flex;
+  text-align: center;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.3);
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  font-style: normal;
+  color:black;
+  width: 50%;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right:10px;
+  padding-bottom: 5px;
+  font-size: 0.7em;
+ margin-top: 10px;
+  border-radius: 50px;
+  background:#EC801E;
+}
+#user_text_container{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  padding:5px;
+  margin-left:10px;
+  width: 100%;
+  
+}
+#chatbot_text_container{
+ display: flex;
+ justify-content:flex-start;
+ align-items: center;
+ padding:5px;
+ margin-left:10px;
+ width:100%;
+  
+}
+.fa-robot{
+  color:#000000;
+  font-size: 1.6em;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.chatbot_text{
+  display: flex;
+  text-align: center;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.3);
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+  font-style: normal;
+  color:black;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right:20px;
+  padding-bottom: 5px;
+  font-size: 0.7em;
+  margin-left:5px ;
+  margin-right: 10px;
+ margin-top: 10px;
+  border-radius: 50px;
+  background:#EC801E;
+  width: 70%;
+}
+.chatbot_text a{
+display:initial;
+}
+.chat_area{
+  height:350px;
+  width: 100%;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  display:none;
+  overflow-x: hidden;
+  scrollbar-width:thin;
+  scrollbar-color:#EC801E #FFFFFF;
+  scroll-behavior: smooth;
+
+}
+.chat_area::-webkit-scrollbar-track
+{
+ 
+    background-color: #FFFFFF;
+}
+
+.chat_area::-webkit-scrollbar
+{
+    width: 0.25rem;
+  
+}
+
+.chat_area::-webkit-scrollbar-thumb
+{
+  
+    background-color:#EC801E;
+    
+}
+#chat_form{
+  height:250px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width:thin;
+  scrollbar-color:#EC801E #FFFFFF;
+
+}
+#chat_form::-webkit-scrollbar-track
+{
+ 
+    background-color: #FFFFFF;
+}
+
+#chat_form::-webkit-scrollbar
+{
+    width: 0.25rem;
+  
+}
+
+#chat_form::-webkit-scrollbar-thumb
+{
+  
+    background-color:#EC801E;
+    
+}
+#replyContainer{
+  text-align: center;
+  width: 100%;
+  font-family: inherit;
+
+}
+
+
+#chat_text{
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+.chatselection{
+  display:none;
+}
+#click{
+  display: none;
+}
+label{
+  position: fixed;
+  z-index:1024;
+  right: 30px;
+  bottom: 20px;
+  height: 55px;
+  width: 55px;
+  background:  #EC801E;
+  text-align: center;
+  line-height: 55px;
+  border-radius: 50px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+label i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+label i.fa-times{
+  opacity: 0;
+  pointer-events: none;
+}
+#click:checked ~ label i.fa-times{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+#click:checked ~ label i.fa-comment-dots {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.wrapper{
+  position: fixed;
+  right: 10px;
+  bottom: 0px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  z-index:1024;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+#click:checked ~ .wrapper{
+  opacity: 1;
+  bottom: 85px;
+  pointer-events: auto;
+}
+.wrapper .head-text{
+  line-height: 60px;
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  padding: 0 20px;
+  font-weight: 500;
+  font-size: 20px;
+  background:  #EC801E;
+}
+.wrapper .chat-box{
+  padding: 20px;
+  width: 100%;
+}
+.chat-box .desc-text {
+  color: #515365;
+  text-align: center;
+  line-height: 25px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.chat-box form{
+  padding: 10px 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+.chat-box form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.chat-box form .field:last-child{
+  margin-bottom: 15px;
+}
+form .field input,
+form .field button,
+form .textarea textarea{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .field input:focus,
+form .textarea textarea:focus{
+  border-color: #EC801E
+}
+form .field input::placeholder,
+form .textarea textarea::placeholder{
+  color: silver;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder,
+form .textarea textarea:focus::placeholder{
+  color: lightgrey;
+}
+.chat-box form .textarea{
+  height: 70px;
+  width: 100%;
+}
+.chat-box form .textarea textarea{
+  height: 100%;
+  border-radius: 5px;
+  resize: none;
+  padding: 15px 20px;
+  font-size: 16px;
+ 
+}
+.chat-box form .field button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  background:  #EC801E;
+  transition: all 0.3s ease;
+}
+.chat-box form .field button:active{
+  transform: scale(0.97);
+  
+}
+

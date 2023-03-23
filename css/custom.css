@@ -1,0 +1,236 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+
+    -font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+  .img{
+      position: absolute;
+      margin: auto;
+      padding: auto;
+    
+  }
+  .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .logo-img{
+  position: center; /* Safari */
+  position: sticky;
+  top: 0;
+  background: transparent;
+  left:40px;
+  margin:auto;
+  text-align: center;
+  vertical-align: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+  
+
+}
+
+  
+
+  .header-area .main-header-area.sticky {
+    padding: 10px 10px;
+}
+.header-area .main-header-area.sticky {
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: -70px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    transform: translateY(70px);
+    transition: transform 500ms ease, background 500ms ease;
+    -webkit-transition: transform 500ms ease, background 500ms ease;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+    padding: 10px 150px;
+    background: #000;
+}
+.header-area .main-header-area {
+    padding: 10px 10px;
+}
+.header-area .main-header-area {
+    padding: 0 150px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+
+
+}
+  .header-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+    padding-top: 28px;
+}
+  .col-8{
+      background: transparent;
+      background-color: black;
+      
+  }
+  
+  #notfound {
+    position: relative;
+    height: 100vh;
+  }
+  
+  #notfound .notfound-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/whitte.png');
+    background-size: cover;
+  }
+  
+  #notfound .notfound-bg:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/whitte.png');
+  }
+  
+  #notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .notfound {
+    max-width: 910px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+  }
+  
+  .notfound .notfound-404 {
+    position: relative;
+    height: 200px;
+  }
+  
+  .notfound .notfound-404 h1 {
+    font-family: 'Raleway', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 200px;
+    font-weight: 700;
+    margin: 0px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+  
+  .notfound h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .notfound .home-btn, .notfound .contact-btn {
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    padding: 13px 25px;
+    font-size: 18px;
+    border-radius: 40px;
+    margin: 7px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+  .notfound .home-btn:hover, .notfound .contact-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .notfound .home-btn {
+    color: rgba(255, 123, 0, 0.7);
+    background: #fff;
+  }
+  
+  .notfound .contact-btn {
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .notfound-social {
+    margin-top: 25px;
+  }
+  
+  .notfound-social>a {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0px 6px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  .notfound-social>a:hover {
+    color: rgba(255, 0, 36, 0.7);
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .notfound .notfound-404 h1 {
+      font-size: 182px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .notfound .notfound-404 {
+      height: 146px;
+    }
+    .notfound .notfound-404 h1 {
+      font-size: 146px;
+    }
+    .notfound h2 {
+      font-size: 16px;
+    }
+    .notfound .home-btn, .notfound .contact-btn {
+      font-size: 14px;
+    }
+  }
+  
