@@ -10,6 +10,7 @@ class WelcomeHome extends Controller
     
     public function index(){
         $room_types = RoomType::get();
+        
         return view('welcome',[
             'room_types' => $room_types
         ]);

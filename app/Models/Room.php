@@ -16,6 +16,9 @@ class Room extends Model
         'num_children',
         'bed_type',
         'occupancy',
+        'floor',
+        'special_offers',
+        'num_beds',
         'is_available',
         'image_path',
         'price'

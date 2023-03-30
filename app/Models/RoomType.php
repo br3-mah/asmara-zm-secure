@@ -15,6 +15,8 @@ class RoomType extends Model
         'description',
         'size',
         'price', 
+        'bed_type',
+        'num_beds',
         'per',
         'cover',
         'comments'

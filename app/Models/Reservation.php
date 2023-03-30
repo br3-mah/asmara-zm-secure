@@ -13,6 +13,7 @@ class Reservation extends Model
         'rooms_id',
         'reservation_date',
         'reservation_code',
+        'room_type',
         'checkin_date',
         'checkout_date',
         'num_adults',
@@ -25,8 +26,15 @@ class Reservation extends Model
         'comments'
     ];
 
+
+    // Refactor this to a relationship
+    public static function fullName($guest_id){
+        $data = User::where('id', $guest_id)->first();
+        return $data->fname.' '.$data->lname;
+    }
+
     public function guests(){
-        return $this->belongsTo(Guest::class, 'guests_id');
+        return $this->belongsTo(Guest::class);
     }
 
     public function rooms(){

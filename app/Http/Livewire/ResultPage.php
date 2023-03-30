@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class ResultPage extends Component
 {
-    public function mount($data){
-        dd($data);
+    public function mount(Request $request){
+
     }
     public function render()
     {

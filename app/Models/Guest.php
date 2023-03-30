@@ -23,6 +23,14 @@ class Guest extends Model
         'gender',
         'comments'
     ];
+    // protected $appends = [
+    //     'full_name'
+    // ];
+
+    // public function getFullNameAttribute(){
+    //     $data = User::where('id', $this->added_by)->first();
+    //     return $data->fname.' '.$data->lname;
+    // }
 
     public function users(){
         return $this->belongsTo(User::class, 'user_id');
@@ -30,6 +38,10 @@ class Guest extends Model
 
     public function added_by(){
         return $this->belongsTo(User::class, 'added_by');
+    }
+
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
     }
 
     public function bookings(){

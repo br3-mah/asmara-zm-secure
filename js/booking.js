@@ -1,6 +1,9 @@
 
 // Check room availability
 $('#test-form').submit(function(event) {
+    
+    $('#submitting').show();
+    $('#ogSubmit').hide();
     event.preventDefault(); // prevent the form from submitting normally
 
     var formData = $(this).serialize(); // serialize the form data
@@ -11,10 +14,24 @@ $('#test-form').submit(function(event) {
         data: formData,
         success: function(response) {
             // handle the response from the server
-            if(response.message === 'No Rooms Founds. Please check other types of rooms.'){
+            if(response.code === 'success'){
                 toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
-                toastr.info('No Rooms Available', 'We are sorry, but all of our rooms are currently booked and unavailable for the dates you have requested. We apologize for any inconvenience this may cause. Please check back with us at a later time.');
+                toastr.info(response.title, response.message);
             }
+
+            if(response.code === 'warning'){
+                toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+                toastr.warning(response.title, response.message);
+            }
+
+            if(response.code === 'error'){
+                toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+                toastr.error(response.title, response.message);
+            }
+            
+            $('#test-form').hide();
+            $('.popup_box').hide();
+            
         },
         error: function(xhr, status, error) {
             // handle errors
@@ -22,3 +39,10 @@ $('#test-form').submit(function(event) {
         }
     });
 });
+
+
+// Pass results to another Page...
+// var myData = response.data;
+// var encodedArray = encodeURIComponent(JSON.stringify(myData)); 
+// console.log(encodedArray);
+// window.location.href = siteBase+'available-rooms?myData=' + encodedArray;
