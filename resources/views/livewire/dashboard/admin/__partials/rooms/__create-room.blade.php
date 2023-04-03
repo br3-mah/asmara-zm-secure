@@ -12,61 +12,58 @@
                     <div class="col-lg-12">
                         <div class="form-validation">
                             <div class="row">
-                                <div class="col-xl-6 col-xxl-6 col-lg-6">
-                                    <div class="mb-2 p-2">
-                                        <div class="col-12">
-                                            <div class="border-2 border-dashed shadow-xs border-slate-200/60 dark:border-darkmode-400 rounded-md p-0">
-                                                <div class="h-20 relative image-fit cursor-pointer zoom-in mx-auto">
-                                                    <img class="col-12" alt="" id="preview-image-room" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdevelopers.elementor.com%2Fdocs%2Fhooks%2Fplaceholder-image%2F&psig=AOvVaw1D_jfnBOgOPsPKTsGEWftF&ust=1679948068450000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjKutW0-v0CFQAAAAAdAAAAABAE">
-                                                </div>
-                                                <div class="mx-auto cursor-pointer relative mt-5">
-                                                    <input type="file" id="room_image_create" name="image_path" class="w-full h-full top-0 left-0"> 
-                                                </div>
-                                            </div>
-                                        </div>                                                        
+                                <div class="col-xl-8 col-xxl-8 col-lg-8">
+                                    <div class=" rounded-md p-0">
+                                        <div class="h-20 relative image-fit cursor-pointer zoom-in mx-auto">
+                                            <img style="width: 30%; border-radius:10px" class="col-12" alt="" id="preview-image-room" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdevelopers.elementor.com%2Fdocs%2Fhooks%2Fplaceholder-image%2F&psig=AOvVaw1D_jfnBOgOPsPKTsGEWftF&ust=1679948068450000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjKutW0-v0CFQAAAAAdAAAAABAE">
+                                        </div>
+                                        <div class="mx-auto cursor-pointer relative mt-5">
+                                            <input type="file" id="room_image_create" name="image_path" class="w-full h-full top-0 left-0"> 
+                                        </div>
                                     </div>
-                                    <div class="mb-3 p-2 row">
+                                </div> 
+                                <div class="col-xl-6 col-xxl-6 col-lg-6 mt-2 p-6">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Room Type
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select name="room_types_id" class="default-select wide form-control" id="validationCustom05">
+                                        <select name="room_types_id" class="default-select" id="validationCustom05">
                                             <option value="" data-display="Select">Select one</option>
                                             @forelse($room_types as $type)
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                                             @empty
                                             @endforelse
-
                                         </select>
                                         <div class="invalid-feedback">
                                             Please select a one.
                                         </div>
                                     </div>  
-                                    <div class="mb-3 p-2 row">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Room Number
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control wide" id="validationCustom01" name="room_number"  placeholder="Enter a Room Type Name.." required>
+                                        <input type="text" class="form-control input-default" id="validationCustom01" name="room_number"  placeholder="Enter a Room Type Name.." required>
                                         <div class="invalid-feedback">
                                             Please enter a room type name.
                                         </div>
                                     </div>
-                                    <div class="mb-3 p-2 row">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Room Floor
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control wide" id="validationCustom01" name="floor"  placeholder="The floor on which the room is located." required>
+                                        <input type="text" class="form-control input-default" id="validationCustom01" name="floor"  placeholder="The floor on which the room is located." required>
                                         <div class="invalid-feedback">
                                             Please enter the total number of people to occupy the room.
                                         </div>
                                     </div>
                                     
                                 </div>
-                                <div class="col-xl-6">                                             
-                                    <div class="mb-3 p-2 row">
+                                <div class="col-xl-6 mt-2 p-6">                                             
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Bed Type
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select name="bed_type" class="default-select wide form-control" id="validationCustom05">
+                                        <select name="bed_type" class="default-select" id="validationCustom05">
                                             <option value="" data-display="Select">Select One</option>
                                             <option value="Double Bed">Double Bed</option>
                                             <option value="Queen Bed">Queen Bed</option>
@@ -79,29 +76,29 @@
                                     </div>
                                     <input type="hidden" name="modified_by" value="{{auth()->user()->id}}" /> 
                                     <input type="hidden" name="is_available" value="1" /> 
-                                    <div class="mb-3 p-2 row">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Occupancy
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control wide" id="validationCustom01" name="occupancy"  placeholder="Total number of people" required>
+                                        <input type="text" class="form-control input-default" id="validationCustom01" name="occupancy"  placeholder="Total number of people" required>
                                         <div class="invalid-feedback">
                                             Please enter the total number of people to occupy the room.
                                         </div>
                                     </div>
-                                    <div class="mb-3 p-2 row">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Number of Adults
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control wide" id="validationCustom01" name="num_adult"  placeholder="Total number of adults" required>
+                                        <input type="text" class="form-control input-default" id="validationCustom01" name="num_adult"  placeholder="Total number of adults" required>
                                         <div class="invalid-feedback">
                                         Please enter the total number of people to occupy the room.
                                         </div>
                                     </div>  
-                                    <div class="mb-3 p-2 row">
+                                    <div class="p-2 row">
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Number of Children
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control wide" id="validationCustom01" name="num_children"  placeholder="Total number of children" required>
+                                        <input type="text" class="form-control input-default" id="validationCustom01" name="num_children"  placeholder="Total number of children" required>
                                         <div class="invalid-feedback">
                                             Please enter the total number of people to occupy the room.
                                         </div>
@@ -113,7 +110,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="success-toastr-success-bottom-left" class="btn btn-primary" >Save changes</button>
+                    <button type="submit" class="btn btn-primary light" >Save changes</button>
                 </div>  
             </form>
         </div>

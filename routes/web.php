@@ -12,6 +12,7 @@ use App\Http\Livewire\Dashboard\Admin\BookingInquiryView;
 use App\Http\Livewire\Dashboard\Admin\BookingManageView;
 use App\Http\Livewire\Dashboard\Admin\BookingReportView;
 use App\Http\Livewire\Dashboard\Admin\ChatbotView;
+use App\Http\Livewire\Dashboard\Admin\EditRoomType;
 use App\Http\Livewire\Dashboard\Admin\EmailView;
 use App\Http\Livewire\Dashboard\Admin\GuestReportView;
 use App\Http\Livewire\Dashboard\Admin\IndexView;
@@ -58,7 +59,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/account-settings', ProfileSettingView::class)->name('account-settings');
 
 
-    
+
     Route::post('/create-room-type', [RoomsController::class, 'createRoomType'])->name('create-room-type');    
+    Route::post('/update-room-type', [RoomsController::class, 'editRoomType'])->name('update-room-type');    
+    Route::get('/edit-room-type/{id}', EditRoomType::class)->name('edit-room-type');    
+    Route::get('/delete-room-type/{id}', [RoomsController::class, 'deleteRoomType'])->name('delete-room-type');    
     Route::post('/create-room', [RoomsController::class, 'createRoom'])->name('create-room');
 });

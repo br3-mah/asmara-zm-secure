@@ -2,16 +2,18 @@
 // Create a Room Type
 $('#create-room-type-form').submit(function(event) {
     event.preventDefault(); // prevent the form from submitting normally
-
+    // alert('here');
+    // $('#create-room-type-form').modal('hide');
     // var formData = $(this).serialize(); // serialize the form data
     let formData = new FormData(this);
+    
     $.ajax({
         type: 'POST',
         url: $(this).attr('action'),
         data: formData,
         cache: false,
-        contentType: true,
-        processData: true,
+        contentType: false,
+        processData: false,
         success: function(response) {
             // handle the response from the server
             if(response.code === 'success'){
@@ -35,6 +37,48 @@ $('#create-room-type-form').submit(function(event) {
         }
     });
 });
+
+// Edit a Room Type
+$('#edit-room-type-form').submit(function(event) {
+    event.preventDefault(); // prevent the form from submitting normally
+    
+    // alert('here');
+    // $('#create-room-type-form').modal('hide');
+    // var formData = $(this).serialize(); // serialize the form data
+    let formData = new FormData(this);
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            // handle the response from the server
+            if(response.code === 'success'){
+                toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+                toastr.info(response.title, response.message);
+                window.location.href = '../room-types';
+            }
+
+            if(response.code === 'warning'){
+                toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+                toastr.warning(response.title, response.message);
+            }
+
+            if(response.code === 'error'){
+                toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
+                toastr.error(response.title, response.message);
+            }
+        },
+        error: function(xhr, status, error) {
+            // handle errors
+            console.log(xhr.responseText);
+        }
+    });
+});
+
 
 // *************************************************************************************************************************
 // Create a Room

@@ -6,7 +6,7 @@ use App\Models\Room;
 use App\Models\RoomType;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 trait RoomTrait {
 
     public function getTotalRooms(){
@@ -25,13 +25,17 @@ trait RoomTrait {
         return RoomType::with('users')->get();
     }
 
+    public function getRoomType($id){
+        return RoomType::where('id', $id)->get()->first();
+    }
+
     public function saveRoomType($request){
         // Bug: image unable to save
         if ($request->file('image_path')) {
             $cover_image = Storage::put('public/room_types', $request->file('image_path'));
         }
         $data = RoomType::create($request->toArray());
-        $data->cover_image = $cover_image;
+        $data->cover = $cover_image;
         $data->save();
 
         if(!empty($data->toArray())){
@@ -40,8 +44,24 @@ trait RoomTrait {
             return false;
         }
     }
+    public function updateRoomType($request){
+        $inputs = $request->except(['type_id', '_token']);
+        $data = RoomType::find($request->input('type_id'));
+        $data->update($inputs);
+        if ($request->file('image_path')) {
+            $cover_image = Storage::put('public/room_types', $request->file('image_path'));
+            $data->cover = $cover_image;
+            $data->save();
+        }
+
+        if(!empty($data->toArray())){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public function saveRoom($request){
-        // Bug: image unable to save
+        
         if ($request->file('image_path')) {
             $image_path = Storage::put('public/rooms', $request->file('image_path'));
         }
@@ -62,5 +82,14 @@ trait RoomTrait {
         $room->save();
     }
 
-
+    public function removeRoomType($id){
+    
+        try {
+            DB::table('room_types')->where('id', '=', $id)->delete();
+            DB::table('rooms')->where('room_types_id', '=', $id)->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }
