@@ -22,7 +22,7 @@ trait BookTrait {
 
     // Returns all booked rooms with booking information dates
     public function getBookings(){
-        return Booking::where('booking_status', 1)->with('room.room_types')->get();
+        return Booking::where('booking_status', 1)->with('room.room_types')->with('guests.users')->get();
     }
 
     // Returns all booked rooms with booking information dates

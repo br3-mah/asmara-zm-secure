@@ -35,7 +35,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
 									<div class="text-center mb-3">
-										<a href="{{ route('welcome') }}"><img src="{{ asset('public/dash/images/logo-full.png')}}" alt=""></a>
+										<a href="{{ route('welcome') }}"><img src="{{ asset('public/dash/images/logo.png')}}" alt=""></a>
 									</div>
                                     <h4 class="text-center mb-4">Administration Dashboard</h4>
                                     <form method="POST" action="{{ route('login') }}">
