@@ -11,9 +11,11 @@ use App\Notifications\GuestInquiryNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 
+
 trait BookTrait {
     use UserTrait, RoomTrait, DateTrait;
 
+    // Get all Booking inquiries
     public function getBookingInquiries(){
         return Reservation::get();
     }
