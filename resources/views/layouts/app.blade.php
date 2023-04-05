@@ -31,7 +31,7 @@
 	<link href="{{ asset('public/dash/css/style.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <!-- Styles -->
     @livewireStyles
@@ -55,7 +55,7 @@
 		Main wrapper start
 	***********************************-->
 	<div id="main-wrapper">
-        @livewire('navigation-menu')
+        @include('navigation-menu')
         @include('layouts.side')	
 	
         <main>
