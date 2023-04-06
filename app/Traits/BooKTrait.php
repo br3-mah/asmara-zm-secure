@@ -10,14 +10,14 @@ use App\Notifications\BookingInquiryNotification;
 use App\Notifications\GuestInquiryNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
-
+use Livewire\WithPagination;
 
 trait BookTrait {
-    use UserTrait, RoomTrait, DateTrait;
+    use UserTrait, RoomTrait, DateTrait, WithPagination;
 
     // Get all Booking inquiries
     public function getBookingInquiries(){
-        return Reservation::get();
+        return Reservation::get()->pageinate(10);
     }
 
     // Returns all booked rooms with booking information dates
