@@ -85,10 +85,11 @@
                                                         <div>
                                                             <h5 class="text-nowrap">
                                                             @php 
-                                                                $date_str = $inq->checkin_date;
-                                                                $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                $formattedDate = $date->format('F j, Y');
-                                                                echo $formattedDate; 
+                                                                // $date_str = $inq->checkin_date;
+                                                                // $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                // $formattedDate = $date->format('F j, Y');
+                                                                // echo $formattedDate; 
+                                                                echo 'waiting...'
                                                             @endphp
                                                             </h5>
                                                         </div>
@@ -97,10 +98,11 @@
                                                         <div>
                                                             <h5 class="text-nowrap">
                                                                 @php 
-                                                                    $date_str = $inq->checkout_date;
-                                                                    $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                    $formattedDate = $date->format('F j, Y');
-                                                                    echo $formattedDate; 
+                                                                    // $date_str = $inq->checkout_date;
+                                                                    // $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                    // $formattedDate = $date->format('F j, Y');
+                                                                    // echo $formattedDate; 
+                                                                    echo 'waiting...'
                                                                 @endphp
                                                             </h5>
                                                         </div>
