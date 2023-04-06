@@ -364,6 +364,12 @@
             @if ($type->cover != null)
               <div class="single_rooms slider__item">
                 <div class="room_thumb">
+                  
+                  @if ($type->name == 'Double Deluxe Room')
+                  <img style="width: 700px; height:400px" src="img/rooms/2.png" alt="{{ $type->name }}" />
+                  @else
+                  <img style="width: 700px; height:400px" src="img/rooms/1.png" alt="{{ $type->name }}" />
+                  @endif
                   <img style="width: 700px; height:400px" src="{{ 'public/'.Storage::url($type->cover) }}" alt="{{ $type->name }}" />
                   <div
                     class="room_heading d-flex justify-content-between align-items-center"
