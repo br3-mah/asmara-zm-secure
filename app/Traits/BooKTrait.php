@@ -78,38 +78,38 @@ trait BookTrait {
     }
 
     public function makeReservation($request){
-        // $admin = User::first();
-        // // Enter User Information
-        // $user = $this->registerUser($request);
-        // // Enter reservation information
-        // $data = Reservation::create([
-        //     'guests_id' => $user->id,
-        //     'reservation_date' => now(),
-        //     'reservation_code' => Str::orderedUuid(4),
-        //     'checkin_date' => $request->input('check_in_date'),
-        //     'checkout_date' =>  $request->input('check_out_date'),
-        //     'num_adults' => $request->input('adult_num'),
-        //     'num_children' => $request->input('children_num'),
-        //     'special_requests' => $request->input('special_requests'),
-        //     'is_confirmed' => 0,
-        //     'is_cancelled' => 0
-        // ]);
-        // $note = [
-        //     'name' => Reservation::fullName($user->id),
-        //     'msg' => "You have received a new booking inquiry. Date of Arival ".$request->input('check_in_date')." and Date of Departure ".$request->input('check_out_date'),
-        //     'type' => 'inquiry',
-        //     'special_req' => $request->input('special_requests') ?? 'None',
-        //     'room_type' => $request->input('room_type'),
-        //     'user_id' => $user->id,
-        //     'data_id' => $data->id
-        // ];
-        // Notification::send($admin, new BookingInquiryNotification($note));
-        // Notification::send($user, new GuestInquiryNotification($note));
-        // if(!empty($data->toArray())){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
+        $admin = User::first();
+        // Enter User Information
+        $user = $this->registerUser($request);
+        // Enter reservation information
+        $data = Reservation::create([
+            'guests_id' => $user->id,
+            'reservation_date' => now(),
+            'reservation_code' => Str::orderedUuid(4),
+            'checkin_date' => $request->input('check_in_date'),
+            'checkout_date' =>  $request->input('check_out_date'),
+            'num_adults' => $request->input('adult_num'),
+            'num_children' => $request->input('children_num'),
+            'special_requests' => $request->input('special_requests'),
+            'is_confirmed' => 0,
+            'is_cancelled' => 0
+        ]);
+        $note = [
+            'name' => Reservation::fullName($user->id),
+            'msg' => "You have received a new booking inquiry. Date of Arival ".$request->input('check_in_date')." and Date of Departure ".$request->input('check_out_date'),
+            'type' => 'inquiry',
+            'special_req' => $request->input('special_requests') ?? 'None',
+            'room_type' => $request->input('room_type'),
+            'user_id' => $user->id,
+            'data_id' => $data->id
+        ];
+        Notification::send($admin, new BookingInquiryNotification($note));
+        Notification::send($user, new GuestInquiryNotification($note));
+        if(!empty($data->toArray())){
+            return true;
+        }else{
+            return false;
+        }
         return true;
     }
 
