@@ -265,6 +265,7 @@
           </div>
         </div>
 
+        <img style="width: 700px; height:400px" src="{{ 'public/'.Storage::url($type->cover) }}" alt="{{ $type->name }}" />
 
         <div class="single_rooms">
           <div class="room_thumb">
