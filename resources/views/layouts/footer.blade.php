@@ -56,7 +56,7 @@
                 <input name="check_in_date" id="datepicker" placeholder="Check in date" />
             </div>
             <div class="col-xl-6">
-                <input name="check_out_date" id="datepicker2" placeholder="Check out date" />
+                <input name="check_out_date" id="datepicker" placeholder="Check out date" />
             </div>
             <div class="col-xl-6">
                 <select name="adult_num" class="form-select wide" id="default-select" class="">

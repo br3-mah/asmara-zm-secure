@@ -27,7 +27,7 @@ class ContactUsPage extends Controller
                 'number' => $request->input('number'),
                 'email' => $request->input('email'),
                 'message' => $request->input('message'),
-                'to' => 'nyeleti.bremah@gmail.com'
+                'to' => 'admin@asmarahotelzm.com'
             ];
             Inquiry::create([
                 'phone' => $request->input('number'),

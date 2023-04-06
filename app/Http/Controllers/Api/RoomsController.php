@@ -64,9 +64,9 @@ class RoomsController extends Controller
     public function deleteRoomType($id){
         $data = $this->removeRoomType($id);
         if($data){
-            redirect()->route('manage-room-types')->with('success', 'Room Type Removed!');
+            return redirect()->route('manage-room-types')->with('success', 'Room Type Removed!');
         }else{
-            redirect()->route('manage-room-types')->with('error', 'Can not remove room type!');
+            return redirect()->route('manage-room-types')->with('error', 'Can not remove room type!');
         }
     }
 }

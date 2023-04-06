@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Dashboard\Admin;
 
 use App\Mail\RespondReservationMail;
 use App\Models\Reservation;
+use App\Models\ReservationList;
 use App\Models\Room;
 use App\Models\User;
 use App\Traits\BookTrait;
@@ -14,7 +15,7 @@ use Livewire\Component;
 class ReservationView extends Component
 {
     use BookTrait, RoomTrait;
-    public $inquiries, $message, $optresp;
+    public $message, $optresp;
     public $user;
     public $inquiry_id = null;
     public $book_room_id;
@@ -26,13 +27,16 @@ class ReservationView extends Component
     {
 
         $this->rooms = $this->getAllRooms();
-        $this->inquiries = $this->getBookingInquiries();
-        return view('livewire.dashboard.admin.reservation-view');
+        $inquiries = $this->getBookingInquiries();
+        return view('livewire.dashboard.admin.reservation-view',[
+            'inquiries' => $inquiries
+        ]);
     }
 
     public function bookRoom($id){
         $this->inquiry_id = $id;
-        $this->reservation = Reservation::where('id', $id)->first();
+        $this->reservation = ReservationList::where('id', $id)->first();
+        // $this->reservation = Reservation::where('id', $id)->first();
         $this->user = User::where('id', $this->reservation->guests_id)->first();
     }
 
@@ -61,7 +65,8 @@ class ReservationView extends Component
 
     public function bulkResponse($id){
         $this->inquiry_id = $id;
-        $data = Reservation::where('id', $id)->first();
+        $data = ReservationList::where('id', $id)->first();
+        // $data = Reservation::where('id', $id)->first();
         $this->user = User::where('id', $data->guests_id)->first();
     }
 

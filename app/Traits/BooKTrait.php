@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Booking;
 use App\Models\Reservation;
+use App\Models\ReservationList;
 use App\Models\Room;
 use App\Models\User;
 use App\Notifications\BookingInquiryNotification;
@@ -17,7 +18,8 @@ trait BookTrait {
 
     // Get all Booking inquiries
     public function getBookingInquiries(){
-        return Reservation::get()->pageinate(10);
+        return ReservationList::paginate(10);
+        // return Reservation::get()->paginate(10);
     }
 
     // Returns all booked rooms with booking information dates
@@ -82,7 +84,8 @@ trait BookTrait {
         // Enter User Information
         $user = $this->registerUser($request);
         // Enter reservation information
-        $data = Reservation::create([
+        // $data = Reservation::create([
+        $data = ReservationList::create([
             'guests_id' => $user->id,
             'reservation_date' => now(),
             'reservation_code' => Str::orderedUuid(4),
@@ -95,7 +98,7 @@ trait BookTrait {
             'is_cancelled' => 0
         ]);
         $note = [
-            'name' => Reservation::fullName($user->id),
+            'name' => ReservationList::fullName($user->id),
             'msg' => "You have received a new booking inquiry. Date of Arival ".$request->input('check_in_date')." and Date of Departure ".$request->input('check_out_date'),
             'type' => 'inquiry',
             'special_req' => $request->input('special_requests') ?? 'None',
@@ -115,6 +118,7 @@ trait BookTrait {
 
     public function saveBooking($data){
         $admin = User::first();
+        // $user = User::where('id', );
         // Enter reservation information
         $data = Booking::create([
             'guests_id' => $data['guest_id'],
@@ -135,7 +139,7 @@ trait BookTrait {
             'msg' => "Booked Room. Date checked in ".$data['in']." and Date of Check-out ".$data['out'],
             'type' => 'booking'
         ];
-        // Notification::send($admin, new BookingInquiryNotification($note));
+        Notification::send($admin, new BookingInquiryNotification($note));
         // Notification::send($user, new GuestInquiryNotification($note));
         if(!empty($data->toArray())){
             return true;
@@ -145,14 +149,16 @@ trait BookTrait {
     }
 
     public function acceptInquiry($id){
-        $inq = Reservation::where('id', $id)->first();
+        // $inq = Reservation::where('id', $id)->first();
+        $inq = ReservationList::where('id', $id)->first();
         $inq->is_confirmed = 1;
         $inq->is_cancelled = 0;
         $inq->save();
     }
 
     public function denyInquiry($id){
-        $inq = Reservation::where('id', $id)->first();
+        // $inq = Reservation::where('id', $id)->first();
+        $inq = ReservationList::where('id', $id)->first();
         $inq->is_confirmed = 1;
         $inq->is_cancelled = 1;
         $inq->save();
