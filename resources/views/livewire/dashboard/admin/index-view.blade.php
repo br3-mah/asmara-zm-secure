@@ -120,7 +120,7 @@
 											</span>
 											<div class="ms-4">
 												<h2 class="mb-0 font-w600">{{ $tt_total_site_visitors - 1 }}</h2>
-												<p class="mb-0">Total Users</p>
+												<a target="_blank" href="{{ route('users') }}" class="mb-0">Total Users</a>
 											</div>
 										</div>
 									</div>

@@ -20,6 +20,7 @@ use App\Http\Livewire\Dashboard\Admin\ProfileSettingView;
 use App\Http\Livewire\Dashboard\Admin\ReservationView;
 use App\Http\Livewire\Dashboard\Admin\RoomManageView;
 use App\Http\Livewire\Dashboard\Admin\RoomTypeManageView;
+use App\Http\Livewire\Dashboard\Admin\UserManageView;
 use App\Http\Livewire\ResultPage;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,7 @@ Route::post('/sending-contact',[ContactUsPage::class, 'submitContact'])->name('s
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
     Route::get('/dashboard', IndexView::class)->name('dashboard');
+    Route::get('/system-users', UserManageView::class)->name('users');
     Route::get('/reservations', ReservationView::class)->name('reservations');
     Route::get('/booking-inquiries', BookingInquiryView::class)->name('inquiries');
     Route::get('/bookings', BookingManageView::class)->name('bookings');

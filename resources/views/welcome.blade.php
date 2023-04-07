@@ -17,9 +17,7 @@
 }
 
 .slider__item {
-
   flex: 0 0 auto;
-  
 }
 
 .slider__container[data-step="4"] .slider__item {
