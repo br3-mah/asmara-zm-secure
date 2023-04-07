@@ -7,8 +7,10 @@ use App\Models\RoomType;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-trait RoomTrait {
+use Livewire\WithPagination;
 
+trait RoomTrait {
+    use WithPagination;
     public function getTotalRooms(){
         return Room::get()->count();
     }
@@ -22,7 +24,7 @@ trait RoomTrait {
     }
 
     public function getAllRoomTypes(){
-        return RoomType::with('users')->get();
+        return RoomType::with('users')->paginate(7);
     }
 
     public function getRoomType($id){
