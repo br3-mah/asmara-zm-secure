@@ -16,7 +16,7 @@
                 </ul>
                 
                 <span>
-                    {{ $items->links() }}
+                    {{ $users->links() }}
                 </span>
             </div>
         </div>

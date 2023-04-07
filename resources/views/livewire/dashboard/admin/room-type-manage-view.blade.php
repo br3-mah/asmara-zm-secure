@@ -17,7 +17,7 @@
             </div>
             <div class="d-flex align-items-center mb-2"> 
                 <span>
-                    {{ $items->links() }}
+                    {{ $room_types->links() }}
                 </span>
                 <button data-bs-toggle="modal" data-bs-target=".create-room-type-modal-lg" class="btn btn-secondary">+ New Room Type</button>
                 <div class="newest ms-3">
