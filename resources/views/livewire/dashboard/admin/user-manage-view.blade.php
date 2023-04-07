@@ -96,9 +96,9 @@
                                             @endforelse
                                         </tbody>
                                     </table>                
-                                    <span class="w-1/2 h-16">
+                                    {{-- <span class="w-1/2 h-16"> --}}
                                         {{ $users->links() }}
-                                    </span>
+                                    {{-- </span> --}}
                                 </div>	
                             </div>
                         </div>

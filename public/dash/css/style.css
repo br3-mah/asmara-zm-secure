@@ -2542,27 +2542,27 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #fff;
-  background-color: #135846;
-  border-color: #135846; }
+  background-color: #ff5200;
+  border-color: #ff5200; }
   .btn-secondary:hover {
     color: #fff;
-    background-color: #104b3c;
-    border-color: #0f4638; }
+    background-color: #ff5200;
+    border-color: #ff5200; }
   .btn-check:focus + .btn-secondary, .btn-secondary:focus {
     color: #fff;
-    background-color: #104b3c;
-    border-color: #0f4638;
+    background-color: #ff5200;
+    border-color: #ff5200;
     box-shadow: 0 0 0 0.25rem rgba(54, 113, 98, 0.5); }
   .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #0f4638;
-    border-color: #0e4235; }
+    background-color: #ff5200;
+    border-color: #ff5200; }
     .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.25rem rgba(54, 113, 98, 0.5); }
   .btn-secondary:disabled, .btn-secondary.disabled {
     color: #fff;
-    background-color: #135846;
-    border-color: #135846; }
+    background-color: #ff5200;
+    border-color: #ff5200; }
 
 .btn-success {
   color: #000;
@@ -12530,7 +12530,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         border-radius: 0.5rem;
         margin-bottom: 1rem; }
       .dlabnav .header-profile2 .header-info2 .btn-md {
-        background: var(--rgba-secondary-1) !important; }
+        background: #ff5200; }
   @media only screen and (max-width: 64rem) {
     .dlabnav .sidebar-info {
       display: none !important; } }
@@ -13337,7 +13337,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
         [data-layout="horizontal"] .dlabnav .metismenu > li:hover, [data-layout="horizontal"] .dlabnav .metismenu > li.mm-active {
           padding: 0; }
           [data-layout="horizontal"] .dlabnav .metismenu > li:hover > a, [data-layout="horizontal"] .dlabnav .metismenu > li.mm-active > a {
-            background: var(--rgba-primary-1) !important;
+            background: #ff5200;
             color: var(--primary);
             border-radius: 1rem; }
             [data-layout="horizontal"] .dlabnav .metismenu > li:hover > a i, [data-layout="horizontal"] .dlabnav .metismenu > li.mm-active > a i {
@@ -19763,7 +19763,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   border-right: 0.3125rem solid transparent; }
 
 [data-theme-version="dark"] .sidebar-right .card-tabs .nav-tabs {
-  border-color: var(--rgba-primary-1) !important; }
+  border-color: #ff5200; }
   [data-theme-version="dark"] .sidebar-right .card-tabs .nav-tabs .nav-item .nav-link {
     color: #000 !important; }
 [data-theme-version="dark"] .sidebar-right .form-control {
@@ -21204,10 +21204,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   height: auto; }
 
 :root {
-  --primary: #E23428;
-  --secondary: #135846;
-  --primary-hover: #bd241a;
-  --primary-dark: #64130d;
+  --primary: #ff5200;
+  --secondary: #ff5200;
+  --primary-hover: #ff5200;
+  --primary-dark: #ff5200;
   --rgba-primary-1: rgba(226, 52, 40, 0.1);
   --rgba-primary-2: rgba(226, 52, 40, 0.2);
   --rgba-primary-3: rgba(226, 52, 40, 0.3);
@@ -21219,8 +21219,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   --rgba-primary-9: rgba(226, 52, 40, 0.9);
   --font-family-base: Roboto, sans-serif;
   --font-family-title: Roboto, sans-serif;
-  --rgba-secondary-1: rgba(19, 88, 70, 0.1);
-  --rgba-secondary-2: rgba(19, 88, 70, 0.2);
+  --rgba-secondary-1: #ff5200;
+  --rgba-secondary-2: #ff5200;
   --title: #000; }
 
 /* input[type="checkbox"] {
@@ -23250,7 +23250,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   background-color: #68e365; }
 
 .badge-secondary {
-  background-color: #135846; }
+  background-color: #ff5200; }
 
 .badge-info {
   background-color: #D653C1; }
@@ -23624,12 +23624,12 @@ button {
       .btn.tp-btn.btn-primary:hover g [fill] {
         fill: #fff; }
   .btn.tp-btn.btn-secondary {
-    color: #135846; }
+    color: #ff5200; }
     .btn.tp-btn.btn-secondary g [fill] {
-      fill: #135846; }
+      fill: #ff5200; }
     .btn.tp-btn.btn-secondary:hover {
-      background-color: #135846;
-      border-color: #135846;
+      background-color: #ff5200;
+      border-color: #ff5200;
       color: #fff; }
       .btn.tp-btn.btn-secondary:hover g [fill] {
         fill: #fff; }
@@ -26900,11 +26900,11 @@ ol, ul {
   width: 2.813rem; }
 
 .request .btn-sm, .request .btn-group-sm > .btn {
-  background: var(--rgba-secondary-1) !important;
+  background: #ff5200;
   font-weight: 500;
   font-size: 16px !important; }
 .request .btn-md {
-  background: var(--rgba-primary-1) !important;
+  background: #ff5200;
   font-weight: 500;
   font-size: 16px !important; }
 
@@ -30027,7 +30027,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   border-right: 0.3125rem solid transparent; }
 
 [data-theme-version="dark"] .sidebar-right .card-tabs .nav-tabs {
-  border-color: var(--rgba-primary-1) !important; }
+  border-color: #ff5200; }
   [data-theme-version="dark"] .sidebar-right .card-tabs .nav-tabs .nav-item .nav-link {
     color: #000 !important; }
 [data-theme-version="dark"] .sidebar-right .form-control {

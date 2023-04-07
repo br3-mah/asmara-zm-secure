@@ -23,8 +23,11 @@ trait RoomTrait {
         return Room::with('staff')->with('room_types')->get();
     }
 
+    public function getAllRoomTypes2(){
+        return RoomType::with('users')->get();
+    }
     public function getAllRoomTypes(){
-        return RoomType::with('users')->paginate(7);
+        return RoomType::with('users')->paginate(2);
     }
 
     public function getRoomType($id){

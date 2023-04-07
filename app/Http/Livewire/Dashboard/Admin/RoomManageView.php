@@ -13,7 +13,7 @@ class RoomManageView extends Component
     public function render()
     {
         $this->rooms = $this->getAllRooms();
-        $this->room_types = $this->getAllRoomTypes();
+        $this->room_types = $this->getAllRoomTypes2();
         return view('livewire.dashboard.admin.room-manage-view');
     }
 

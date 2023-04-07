@@ -16,12 +16,12 @@
             </div>
             <div class="d-flex align-items-center mb-2"> 
                 <button data-bs-toggle="modal" data-bs-target=".create-room-modal-lg" class="btn btn-secondary">+ New Room</button>
-                <div class="newest ms-3">
+                {{-- <div class="newest ms-3">
                     <select class="default-select">
                         <option>Newest</option>
                         <option>Oldest</option>
                     </select>
-                </div>	
+                </div>	 --}}
             </div>
         </div>
         <div class="row mt-4">

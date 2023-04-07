@@ -18,7 +18,7 @@ class BookingManageView extends Component
         // Get Booking with room information
         $this->bookings = $this->getBookings();
         $this->guests = $this->getGuests();
-        $this->room_types = $this->getAllRoomTypes();
+        $this->room_types = $this->getAllRoomTypes2();
         return view('livewire.dashboard.admin.booking-manage-view');
     }
 
