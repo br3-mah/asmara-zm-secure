@@ -46,7 +46,7 @@ Route::post('/sending-contact',[ContactUsPage::class, 'submitContact'])->name('s
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
     Route::get('/dashboard', IndexView::class)->name('dashboard');
-    Route::get('/booking-reservations', ReservationView::class)->name('reservations');
+    Route::get('/reservations', ReservationView::class)->name('reservations');
     Route::get('/booking-inquiries', BookingInquiryView::class)->name('inquiries');
     Route::get('/bookings', BookingManageView::class)->name('bookings');
     Route::get('/calendar-and-bookings', BookingCalendarView::class)->name('calendar');
