@@ -27,11 +27,9 @@ class ReservationView extends Component
     {
 
         $this->rooms = $this->getAllRooms();
-        $inquiries = $this->getBookingInquiries();
-        dd($inquiries);
-        return view('livewire.dashboard.admin.reservation-view',[
-            'inquiries' => $inquiries
-        ]);
+        // $inquiries = $this->getBookingInquiries();
+        // dd($inquiries);
+        return view('livewire.dashboard.admin.reservation-view');
     }
 
     public function bookRoom($id){
