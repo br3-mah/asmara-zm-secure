@@ -15,9 +15,7 @@
                     </li> --}}
                 </ul>
                 
-                <span>
-                    {{ $users->links() }}
-                </span>
+
             </div>
         </div>
         <div class="row mt-4">
@@ -97,7 +95,10 @@
                                                 
                                             @endforelse
                                         </tbody>
-                                    </table>
+                                    </table>                
+                                    <span class="w-1/2 h-16">
+                                        {{ $users->links() }}
+                                    </span>
                                 </div>	
                             </div>
                         </div>
