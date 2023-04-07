@@ -119,8 +119,8 @@
 												</svg>
 											</span>
 											<div class="ms-4">
-												<h2 class="mb-0 font-w600">{{ $tt_total_site_visitors }}</h2>
-												<p class="mb-0">Total Site Visitors</p>
+												<h2 class="mb-0 font-w600">{{ $tt_total_site_visitors - 1 }}</h2>
+												<p class="mb-0">Total Users</p>
 											</div>
 										</div>
 									</div>
