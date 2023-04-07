@@ -14,6 +14,10 @@
                         <a class="nav-link" data-bs-toggle="tab" href="#InactiveEmployee">Inactive Room Types</a>
                     </li> --}}
                 </ul>
+                
+                <span>
+                    {{ $items->links() }}
+                </span>
             </div>
         </div>
         <div class="row mt-4">
