@@ -87,7 +87,6 @@ $('#create-room-form').submit(function(event) {
 // Create a Room Type
 $('#create-room-type-form').submit(function(event) {
     event.preventDefault(); // prevent the form from submitting normally
-    alert('here');
     $('.create-room-type-modal-lg').modal('hide');
     // $('#create-room-type-form').modal('hide');
     // var formData = $(this).serialize(); // serialize the form data
