@@ -56,9 +56,6 @@
                 <input name="check_in_date" id="datepicker" placeholder="Check in date" />
             </div>
             <div class="col-xl-6">
-                <input name="check_out_date" id="datepicker" placeholder="Check out date" />
-            </div>
-            <div class="col-xl-6">
                 <select name="adult_num" class="form-select wide" id="default-select" class="">
                     <option value="0" data-display="Adult"></option>
                     <option value="1">1</option>
@@ -67,6 +64,9 @@
                     <option value="4">4</option>
                     <option value="0">None</option>
                 </select>
+            </div>
+            <div class="col-xl-6">
+                <input name="check_out_date" id="pickdate" placeholder="Check out date" />
             </div>
             <div class="col-xl-6">
                 <select name="children_num" class="form-select wide" id="default-select" class="">
@@ -184,6 +184,14 @@
         icons: {
         rightIcon: '<span class="fa fa-caret-down"></span>',
         },
+    });
+    // Initialize datepicker
+    $("#pickdate").datepicker({
+        dateFormat: "dd/mm/yy", // Format of the displayed date
+        showButtonPanel: true, // Show a button panel with today and close buttons
+        changeMonth: true, // Allow changing the month
+        changeYear: true, // Allow changing the year
+        yearRange: "1900:2030" // Set the range of selectable years
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

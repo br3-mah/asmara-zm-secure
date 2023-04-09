@@ -32,7 +32,7 @@
                     <div class="card-body p-0">
                         <div class="tab-content">	
                             <div class="tab-pane fade active show" id="AllRooms">
-                                <div class="table-responsive">
+                                <div class="table-responsive p-4">
                                     @if(session('success'))
                                         <div class="alert alert-success">
                                             {{ session('success') }}
@@ -43,7 +43,7 @@
                                             {{ session('error') }}
                                         </div>
                                     @endif
-                                    <table class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
+                                    <table id="example3" wire:ignore.self wire:poll.10000ms class="display mb-4 shadow-hover table-responsive-lg">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
@@ -113,9 +113,6 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-                                    <span class="w-1/2 h-16">
-                                        {{ $room_types->links() }}
-                                    </span>
                                 </div>	
                             </div>
                         </div>

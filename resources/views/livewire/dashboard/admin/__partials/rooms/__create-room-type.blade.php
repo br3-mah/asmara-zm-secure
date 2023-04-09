@@ -1,4 +1,4 @@
-<div class="modal fade create-room-type-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+<div wire:ignore class="modal fade create-room-type-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -108,7 +108,6 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="js/rooms.js"></script>
-<script src="js/toastr.js"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $('#room_type_image_create').change(function(){

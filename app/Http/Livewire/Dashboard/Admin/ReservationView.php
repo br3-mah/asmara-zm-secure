@@ -27,8 +27,7 @@ class ReservationView extends Component
     {
 
         $this->rooms = $this->getAllRooms();
-        $inquiries = ReservationList::paginate(10);;
-        // dd($inquiries);
+        $inquiries = ReservationList::get();
         return view('livewire.dashboard.admin.reservation-view',[
             'inquiries'=>$inquiries
         ]);
