@@ -24,7 +24,7 @@
                     <div class="card-body p-0">
                         <div class="tab-content">	
                             <div class="tab-pane fade active show" id="AllRooms">
-                                <div class="table-responsive">
+                                <div class="table-responsive p-4">
                                     @if(session('success'))
                                         <div class="alert alert-success">
                                             {{ session('success') }}
@@ -35,7 +35,7 @@
                                             {{ session('error') }}
                                         </div>
                                     @endif
-                                    <table class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
+                                    <table id="example3" class="p-4 table card-table display mb-4 shadow-hover table-responsive-lg">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
@@ -95,10 +95,7 @@
                                                 
                                             @endforelse
                                         </tbody>
-                                    </table>                
-                                    <ul class="my-custom-pagination-class">
-                                        {{ $users->links() }}
-                                    </ul>
+                                    </table>   
                                 </div>	
                             </div>
                         </div>
