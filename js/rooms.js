@@ -3,8 +3,6 @@
 // Edit a Room Type
 $('#edit-room-type-form').submit(function(event) {
     event.preventDefault(); // prevent the form from submitting normally
-    
-    // alert('here');
     // $('#create-room-type-form').modal('hide');
     // var formData = $(this).serialize(); // serialize the form data
     let formData = new FormData(this);
