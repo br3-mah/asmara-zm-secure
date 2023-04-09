@@ -96,9 +96,9 @@
                                             @endforelse
                                         </tbody>
                                     </table>                
-                                    {{-- <span class="w-1/2 h-16"> --}}
-                                        {{-- {{ $users->links() }} --}}
-                                    {{-- </span> --}}
+                                    <ul class="my-custom-pagination-class">
+                                        {{ $users->links() }}
+                                    </ul>
                                 </div>	
                             </div>
                         </div>
