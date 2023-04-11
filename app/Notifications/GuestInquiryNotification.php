@@ -44,7 +44,10 @@ class GuestInquiryNotification extends Notification
             ->subject('Asmara Hotel Zambia | Booking Inquiry')
             ->line('Dear '.$this->data['name'])
             ->line('Thank you for submitting your booking inquiry with us. We have received your request and our team is currently reviewing it. We will get back to you as soon as possible with the details of your booking and any additional information you may need.')
-            ->line('Room Type: '.$this->data['room_type'])
+            ->line('Room Type: '.$this->data['room_type'].' for '.$this->data['duration'].' Nights')
+            ->line('Check In: '.$this->data['in'])
+            ->line('Check Out: '.$this->data['out'])
+            ->line('Total Billing: '.$this->data['bill'])
             ->line('Special Requests: '.$this->data['special_req'])
             ->line('Thank You.');
     }

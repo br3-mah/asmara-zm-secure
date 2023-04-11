@@ -93,12 +93,12 @@
             </div>
                                                              
             <div class="col-xl-12">
-                <button id="ogSubmit" type="submit" class="boxed-btn3">
+                <button id="ogSubmit" type="submit" style="background-color: #ff7b00" class="boxed-btn3">
                     Inquire Now
                 </button>
                 
                 <button id="submitting" disabled class="boxed-btn2 disabled">
-                    Loading ...
+                    <img src="img/preloader.gif">
                 </button>
             </div>
          </div>

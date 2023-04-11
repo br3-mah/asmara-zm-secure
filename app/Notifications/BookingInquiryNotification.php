@@ -43,7 +43,10 @@ class BookingInquiryNotification extends Notification
         return (new MailMessage)
             ->subject('Asmara Booking Inquiry')
             ->line($this->data['msg'])
-            ->line('Room Type: '.$this->data['room_type'])
+            ->line('Room Type: '.$this->data['room_type'].' for '.$this->data['duration'].' Nights')
+            ->line('Check In: '.$this->data['in'])
+            ->line('Check Out: '.$this->data['out'])
+            ->line('Total Billing: '.$this->data['bill'])
             ->line('Special Requests: '.$this->data['special_req'])
             ->action('Manage Booking Inquiries', url('/booking-inquiries'))
             ->line('Administrator');

@@ -537,4 +537,4 @@ sliders.forEach((slider, i) => {
   slider.addEventListener("mouseleave", dragStop);
 });
   </script>
-    @include('layouts.footer')
+@include('layouts.footer')

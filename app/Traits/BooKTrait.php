@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Reservation;
 use App\Models\ReservationList;
 use App\Models\Room;
+use App\Models\RoomType;
 use App\Models\User;
 use App\Notifications\BookingInquiryNotification;
 use App\Notifications\GuestInquiryNotification;
@@ -83,14 +84,18 @@ trait BookTrait {
         $admin = User::first();
         // Enter User Information
         $user = $this->registerUser($request);
+        $in = $this->convertNormal($request->input('check_in_date'));
+        $out = $this->convertNormal($request->input('check_out_date'));
+        $nights = $this->numOfDays($in, $out);
+        $total_bill = $nights * RoomType::where('name', $request->input('room_type'))->first()->price;
         // Enter reservation information
-        // $data = Reservation::create([
+        // $data = Reservation::create([    
         $data = ReservationList::create([
             'guests_id' => $user->id,
             'reservation_date' => now(),
             'reservation_code' => Str::orderedUuid(4),
-            'checkin_date' => $request->input('check_in_date'),
-            'checkout_date' =>  $request->input('check_out_date'),
+            'checkin_date' => $this->readDate($in),
+            'checkout_date' =>  $this->readDate($out),
             'num_adults' => $request->input('adult_num'),
             'num_children' => $request->input('children_num'),
             'special_requests' => $request->input('special_requests'),
@@ -99,10 +104,14 @@ trait BookTrait {
         ]);
         $note = [
             'name' => ReservationList::fullName($user->id),
-            'msg' => "You have received a new booking inquiry. Date of Arival ".$request->input('check_in_date')." and Date of Departure ".$request->input('check_out_date'),
+            'msg' => "You have received a new booking inquiry. Date of Arival ".$this->readDate($in)." and Date of Departure ".$this->readDate($out).". Total billing of K".$total_bill,
             'type' => 'inquiry',
             'special_req' => $request->input('special_requests') ?? 'None',
+            'in' => $request->input('check_in_date'),
+            'out' => $request->input('check_out_date'),
             'room_type' => $request->input('room_type'),
+            'bill' => 'K'.$total_bill,
+            'duration' => $nights,
             'user_id' => $user->id,
             'data_id' => $data->id
         ];

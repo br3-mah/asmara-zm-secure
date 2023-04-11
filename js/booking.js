@@ -31,7 +31,7 @@ $('#test-form').submit(function(event) {
             
             $('#test-form').hide();
             $('.popup_box').hide();
-            
+            location.reload();
         },
         error: function(xhr, status, error) {
             // handle errors
