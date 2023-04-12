@@ -81,15 +81,14 @@ trait BookTrait {
     }
 
     public function makeReservation($request){
-        $admin = User::first();
+        $admin = User::where('id', 1)->first();
         // Enter User Information
         $user = $this->registerUser($request);
         $in = $this->convertNormal($request->input('check_in_date'));
         $out = $this->convertNormal($request->input('check_out_date'));
         $nights = $this->numOfDays($in, $out);
         $total_bill = $nights * RoomType::where('name', $request->input('room_type'))->first()->price;
-        // Enter reservation information
-        // $data = Reservation::create([    
+     
         $data = ReservationList::create([
             'guests_id' => $user->id,
             'reservation_date' => now(),
@@ -102,6 +101,8 @@ trait BookTrait {
             'is_confirmed' => 0,
             'is_cancelled' => 0
         ]);
+
+        dd($data);
         $note = [
             'name' => ReservationList::fullName($user->id),
             'msg' => "You have received a new booking inquiry. Date of Arival ".$this->readDate($in)." and Date of Departure ".$this->readDate($out).". Total billing of K".$total_bill,
