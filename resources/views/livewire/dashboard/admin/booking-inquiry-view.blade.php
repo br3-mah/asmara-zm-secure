@@ -107,5 +107,5 @@
     </div>
 
     {{-- Modal --}}
-    @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details')
+    {{-- @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details') --}}
 </div>
