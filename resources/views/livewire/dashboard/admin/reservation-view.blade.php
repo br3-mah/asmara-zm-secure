@@ -84,11 +84,11 @@
                                                         <div>
                                                             <h5 class="text-nowrap">
                                                             @php 
-                                                                // $date_str = $inq->checkin_date;
-                                                                // $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                // $formattedDate = $date->format('F j, Y');
-                                                                // echo $formattedDate; 
-                                                                echo 'waiting...'
+                                                                $date_str = $inq->checkin_date;
+                                                                $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                $formattedDate = $date->format('F j, Y');
+                                                                echo $formattedDate; 
+                                                                // echo 'waiting...'
                                                             @endphp
                                                             </h5>
                                                         </div>
@@ -97,11 +97,11 @@
                                                         <div>
                                                             <h5 class="text-nowrap">
                                                                 @php 
-                                                                    // $date_str = $inq->checkout_date;
-                                                                    // $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                    // $formattedDate = $date->format('F j, Y');
-                                                                    // echo $formattedDate; 
-                                                                    echo 'waiting...'
+                                                                    $date_str = $inq->checkout_date;
+                                                                    $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                    $formattedDate = $date->format('F j, Y');
+                                                                    echo $formattedDate; 
+                                                                    // echo 'waiting...'
                                                                 @endphp
                                                             </h5>
                                                         </div>
@@ -127,12 +127,12 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <div class="request">
+                                                        {{-- <div class="request">
                                                             <a href="javascript:void(0);" class="btn btn-md text-primary">Refund</a>
-                                                        </div>  
-                                                        <div class="request">
-                                                            <button class="btn btn-sm btn-primary" wire:click="deny({{ $inq->id }})" onclick="confirm('Send Room Not Available Response') || event.stopImmediatePropagation();" class="btn btn-sm btn-info text-dark">
-                                                                Respond
+                                                        </div>   --}}
+                                                        <div class="request flex row space-x-2">
+                                                            <button class="btn btn-xs btn-primary" wire:click="deny({{ $inq->id }})" onclick="confirm('Send Room Not Available Response') || event.stopImmediatePropagation();" class="btn btn-sm btn-info text-dark">
+                                                                Decline
                                                             </button> 
                                                             <button wire:click="bulkResponse({{ $inq->id }})" data-bs-toggle="modal" data-bs-target="#respondToReservation" class="btn btn-secondary btn-xs">Respond<span
                                                                     class="btn-icon-end"><i class="fa fa-envelope"></i></span>
