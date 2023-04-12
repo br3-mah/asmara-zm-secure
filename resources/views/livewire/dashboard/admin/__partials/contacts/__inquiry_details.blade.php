@@ -1,4 +1,4 @@
-<div class="modal fade" id="inquiryDetailModalLong">
+<div wire:ignore.self wire:poll.50000ms class="modal fade" id="inquiryDetailModalLong">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
