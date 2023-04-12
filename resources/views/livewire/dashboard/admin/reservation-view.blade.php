@@ -133,9 +133,9 @@
                                                             <a href="javascript:void(0);" class="btn btn-md text-primary">Refund</a>
                                                         </div>   --}}
                                                         <div class="request flex row space-x-2">
-                                                            <button class="btn btn-xs btn-primary" wire:click="deny({{ $inq->id }})" onclick="confirm('Send Room Not Available Response') || event.stopImmediatePropagation();" class="btn btn-sm btn-info text-dark">
+                                                            {{-- <button class="btn btn-xs btn-primary" wire:click="deny({{ $inq->id }})" onclick="confirm('Send Room Not Available Response') || event.stopImmediatePropagation();" class="btn btn-sm btn-info text-dark">
                                                                 Decline
-                                                            </button> 
+                                                            </button>  --}}
                                                             <button wire:click="bulkResponse({{ $inq->id }})" data-bs-toggle="modal" data-bs-target="#respondToReservation" class="btn btn-secondary btn-xs">Respond<span
                                                                     class="btn-icon-end"><i class="fa fa-envelope"></i></span>
                                                             </button> 
