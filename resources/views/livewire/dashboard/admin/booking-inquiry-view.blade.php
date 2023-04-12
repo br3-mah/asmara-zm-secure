@@ -107,7 +107,5 @@
     </div>
 
     {{-- Modal --}}
-    @if($contact_info != null)
-        @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details')
-    @endif
+    @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details')
 </div>
