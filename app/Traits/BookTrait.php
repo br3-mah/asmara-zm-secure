@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
+
+
 trait BookTrait {
     use UserTrait, RoomTrait, DateTrait, WithPagination;
 
