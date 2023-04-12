@@ -43,7 +43,7 @@
                         <div class="tab-content">	
                             <div class="tab-pane active show" id="AllGuest">
                                 <div class="table-responsive">
-                                    <table wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
+                                    <table class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
