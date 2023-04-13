@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'fname' => 'Amsara',
             'lname' => 'Hotel',
-            'email' => 'admin@asmarahotelzam.com',
+            'email' => 'admin@asmarahotelzm.com',
             'password' => bcrypt('Asmara.@2023'),
         ])->assignRole('admin');
     }
