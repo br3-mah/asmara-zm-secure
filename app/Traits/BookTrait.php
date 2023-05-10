@@ -21,13 +21,28 @@ trait BookTrait {
 
     // Get all Booking inquiries
     public function getBookingInquiries(){
-        return ReservationList::paginate(10);
+        return ReservationList::orderByDesc('created_at')->paginate(10);
         // return Reservation::get()->paginate(10);
+    }
+
+    // Get all Booking inquiries
+    public function hasCurrentBooking($guest_id){
+        return Booking::where('guests_id', $guest_id)->exists();
+        // return Reservation::get()->paginate(10);
+    }
+
+    public function getLastBooking($guest_id){
+        return Booking::orderByDesc('created_at')->with('room.room_types')->where('guests_id', $guest_id)->first();
+    }
+    
+    // Get all Booking inquiries
+    public function getCustomerBookings($guest_id){
+        return Booking::orderByDesc('created_at')->where('guests_id', $guest_id)->paginate(5);
     }
 
     // Returns all booked rooms with booking information dates
     public function getBookings(){
-        return Booking::where('booking_status', 1)->with('room.room_types')->with('guests.users')->get();
+        return Booking::orderByDesc('created_at')->where('booking_status', 1)->with('room.room_types')->with('guests.users')->get();
     }
 
     // Returns all booked rooms with booking information dates

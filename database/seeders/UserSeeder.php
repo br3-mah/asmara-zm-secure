@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'fname' => 'Amsara',
             'lname' => 'Hotel',
             'email' => 'admin@asmarahotelzm.com',
-            'password' => bcrypt('Asmara.@2023'),
+            'password' => bcrypt('123567890'),
         ])->assignRole('admin');
     }
 }

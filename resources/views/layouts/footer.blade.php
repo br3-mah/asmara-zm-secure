@@ -11,7 +11,7 @@
        {{-- <h3>Check Availability</h3> --}}
          <div class="row">           
             <div class="col-xl-12">
-                <select name="adult_num" class="form-select wide" id="default-select" class="">
+                <select name="country" class="form-select wide" id="default-select" class="">
                     <option value="0" data-display="Country"></option>
                     <option value="Afghanistan">Afghanistan</option>
                     <option value="Albania">Albania</option>

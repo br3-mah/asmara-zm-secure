@@ -60,8 +60,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
+        'profile_photo_url'
     ];
+
+    public static function lastCheckInDate($id){
+        $data = Booking::orderByDesc('created_at')
+                        ->where('guests_id', $id)->first();
+        return $data->checkin_date ?? 'None';
+    }
+
+    public static function lastCheckOutDate($id){
+        $data = Booking::orderByDesc('created_at')
+                        ->where('guests_id', $id)->first();
+        return $data->checkout_date ?? 'None';
+    }
 
     public static function fullNames($id){
         $data = User::where('id', $id)->first();
@@ -77,7 +89,7 @@ class User extends Authenticatable
     }
     
     public function guests(){
-        return $this->hasMany(Guest::class);
+        return $this->hasOne(Guest::class);
     }
     
     public function reservations(){

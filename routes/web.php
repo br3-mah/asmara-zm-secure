@@ -14,6 +14,7 @@ use App\Http\Livewire\Dashboard\Admin\BookingReportView;
 use App\Http\Livewire\Dashboard\Admin\ChatbotView;
 use App\Http\Livewire\Dashboard\Admin\EditRoomType;
 use App\Http\Livewire\Dashboard\Admin\EmailView;
+use App\Http\Livewire\Dashboard\Admin\GuestInfoView;
 use App\Http\Livewire\Dashboard\Admin\GuestReportView;
 use App\Http\Livewire\Dashboard\Admin\IndexView;
 use App\Http\Livewire\Dashboard\Admin\ProfileSettingView;
@@ -49,6 +50,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', IndexView::class)->name('dashboard');
     Route::get('/system-users', UserManageView::class)->name('users');
     Route::get('/reservations', ReservationView::class)->name('reservations');
+    Route::get('/guest-information/{id}', GuestInfoView::class)->name('guest-info');
     Route::get('/booking-inquiries', BookingInquiryView::class)->name('inquiries');
     Route::get('/bookings', BookingManageView::class)->name('bookings');
     Route::get('/calendar-and-bookings', BookingCalendarView::class)->name('calendar');
