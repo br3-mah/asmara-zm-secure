@@ -13,8 +13,8 @@ class GuestInfoView extends Component
 
     public function mount($id){
         $this->user = User::where('id', $id)->with('guests')->first();
-        $this->hasCurrentBooking = $this->hasCurrentBooking($this->user->guests->id);
-        $this->lastBooking = $this->getLastBooking($this->user->guests->id);
+        $this->hasCurrentBooking = $this->hasCurrentBooking($this->user->id);
+        $this->lastBooking = $this->getLastBooking($this->user->id);
         
     }
 

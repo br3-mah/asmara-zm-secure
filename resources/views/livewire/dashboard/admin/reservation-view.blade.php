@@ -136,8 +136,8 @@
                                                             {{-- <button class="btn btn-xs btn-primary" wire:click="deny({{ $inq->id }})" onclick="confirm('Send Room Not Available Response') || event.stopImmediatePropagation();" class="btn btn-sm btn-info text-dark">
                                                                 Decline
                                                             </button>  --}}
-                                                            <button wire:click="bulkResponse({{ $inq->id }})" data-bs-toggle="modal" data-bs-target="#respondToReservation" class="btn btn-secondary btn-xs">Respond<span
-                                                                    class="btn-icon-end"><i class="fa fa-envelope"></i></span>
+                                                            <button wire:click="bulkResponse({{ $inq->id }})" data-bs-toggle="modal" data-bs-target="#respondToReservation" class="btn btn-secondary btn-xs">
+                                                                <span>Respond</span>&nbsp;<i class="fa fa-envelope"></i>
                                                             </button> 
                                                         </div>
                                                     </td>

@@ -43,7 +43,7 @@ class BookingInquiryNotification extends Notification
         return (new MailMessage)
             ->subject('Asmara Booking Inquiry')
             ->line($this->data['msg'])
-            ->line('Room Type: '.$this->data['room_type'].' for '.$this->data['duration'].' Nights')
+            ->line('Room Type: '.$this->data['room_type'].' for '.$this->data['duration'] .' Nights')
             ->line('Check In: '.$this->data['in'])
             ->line('Check Out: '.$this->data['out'])
             ->line('Total Billing: '.$this->data['bill'])
@@ -61,7 +61,7 @@ class BookingInquiryNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'name' => $this->data['name'],
+            'name' => $this->data['name'] ?? '',
             'msg' => $this->data['msg'] .'. Special Requests: '.$this->data['special_req'].' Room Type: '.$this->data['room_type'],
             'type' => $this->data['type'],
             'user_id' => $this->data['user_id'],

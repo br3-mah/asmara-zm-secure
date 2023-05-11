@@ -59,6 +59,7 @@ class ReservationView extends Component
             $this->saveBooking($data);
             session()->flash('success', 'Room successfully booked.');
         } catch (\Throwable $th) {
+            dd($th);
             session()->flash('error', 'Room booking failed.');
         }
     }

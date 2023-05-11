@@ -47,10 +47,9 @@
                                                 <th>Check-Out</th>
                                                 <th>Bed Type</th>
                                                 <th>Room Floor</th>
-                                                <th>Facilities</th>
                                                 <th>Rate</th>
-                                                <th>Status</th>
-                                                <th class="bg-none"></th>
+                                                <th>Special Requests</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -81,10 +80,11 @@
                                                         <div class="room-list-bx d-flex align-items-center">
                                                             <span class=" fs-16 font-w500 text-nowrap">
                                                                 @php 
-                                                                    $date_str = $booking->checkin_date;
-                                                                    $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                    $formattedDate = $date->format('F j, Y');
-                                                                    echo $formattedDate; 
+                                                                    // $date_str = $booking->checkin_date;
+                                                                    // $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                    // $formattedDate = $date->format('F j, Y');
+                                                                    // echo $formattedDate; 
+                                                                    echo $booking->checkin_date; 
                                                                 @endphp
                                                             </span>
                                                         </div>
@@ -93,10 +93,11 @@
                                                         <div class="room-list-bx d-flex align-items-center">
                                                             <span class=" fs-16 font-w500 text-nowrap">
                                                                 @php 
-                                                                    $date_str = $booking->checkout_date;
-                                                                    $date = DateTime::createFromFormat('m/d/Y', $date_str);
-                                                                    $formattedDate = $date->format('F j, Y');
-                                                                    echo $formattedDate; 
+                                                                    // $date_str = $booking->checkout_date;
+                                                                    // $date = DateTime::createFromFormat('m/d/Y', $date_str);
+                                                                    // $formattedDate = $date->format('F j, Y');
+                                                                    // echo $formattedDate; 
+                                                                    echo $booking->checkout_date; 
                                                                 @endphp
                                                             </span>
                                                         </div>
@@ -110,17 +111,14 @@
                                                             <span class="fs-16 font-w500">{{ $booking->room->floor ?? ''}}</span>
                                                         </div>
                                                     </td>
+                                                    <td>	
+                                                        K{{ $booking->room->room_types != null ? $booking->room->room_types->price : ''}}
+                                                        <small class="fs-14 ms-2">/{{ $booking->room->room_types != null ? $booking->room->room_types->per : ''}}</small>
+                                                        
+                                                    </td>
                                                     <td class="facility">
                                                         <div>
-                                                            <span class="fs-16 comments">{{ $booking->room->room_types != null ? $booking->room->room_types->comments : ''}}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="">
-                                                            <span class="mb-2">Price</span>	
-                                                            <span class="font-w500">K{{ $booking->room->room_types != null ? $booking->room->room_types->price : ''}}
-                                                                <small class="fs-14 ms-2">/{{ $booking->room->room_types != null ? $booking->room->room_types->per : ''}}</small>
-                                                            </span>
+                                                            <span class="fs-16 comments">{{ $booking->room->room_types != null ? $booking->room->room_types->comments : 'None'}}</span>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -151,6 +149,9 @@
                                             @endforelse
                                         </tbody>
                                     </table>
+                                    <div class="my-2">
+                                        {{ $bookings->links()}}
+                                    </div>
                                 </div>	
                             </div>	
 

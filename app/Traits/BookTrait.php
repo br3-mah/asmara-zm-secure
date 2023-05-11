@@ -42,7 +42,7 @@ trait BookTrait {
 
     // Returns all booked rooms with booking information dates
     public function getBookings(){
-        return Booking::orderByDesc('created_at')->where('booking_status', 1)->with('room.room_types')->with('guests.users')->get();
+        return Booking::orderByDesc('created_at')->where('booking_status', 1)->with('room.room_types')->with('guests.users')->paginate(5);
     }
 
     // Returns all booked rooms with booking information dates
@@ -141,9 +141,15 @@ trait BookTrait {
 
     public function saveBooking($data){
         $admin = User::first();
-        // $user = User::where('id', );
         // Enter reservation information
-        $data = Booking::create([
+        $reserv = ReservationList::where('id', $data['reserve_id'])->first();
+        $theroom = Room::with('room_types')->where('id', $data['room_id'])->first();
+        // $in = $this->convertNormal($data['in']);
+        // $out = $this->convertNormal($data['out']);
+        $nights = $this->numOfDays($data['in'], $data['out']);
+        $total_bill = $nights * RoomType::where('name', $theroom->room_types->name)->first()->price;
+
+        $book = Booking::create([
             'guests_id' => $data['guest_id'],
             'rooms_id' => $data['room_id'],
             'reservations_id' => $data['reserve_id'],
@@ -158,13 +164,23 @@ trait BookTrait {
             'payment_status' => 1,
             'booking_status' => 1
         ]);
+
         $note = [
+            'name' => ReservationList::fullName($data['guest_id']),
             'msg' => "Booked Room. Date checked in ".$data['in']." and Date of Check-out ".$data['out'],
-            'type' => 'booking'
+            'type' => 'booking',
+            'room_type' => $theroom->room_types->name,
+            'special_req' => $reserv->special_requests ?? 'None',
+            'in' => $data['in'],
+            'out' => $data['out'],
+            'bill' => 'K'.$total_bill,
+            'duration' => $nights,
+            'user_id' => $data['guest_id'],
+            'data_id' => $book->id
         ];
         Notification::send($admin, new BookingInquiryNotification($note));
-        // Notification::send($user, new GuestInquiryNotification($note));
-        if(!empty($data->toArray())){
+        Notification::send($this->user, new GuestInquiryNotification($note));
+        if(!empty($book->toArray())){
             return true;
         }else{
             return false;

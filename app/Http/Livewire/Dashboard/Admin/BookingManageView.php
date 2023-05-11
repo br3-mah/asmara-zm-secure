@@ -11,15 +11,17 @@ use Livewire\Component;
 class BookingManageView extends Component
 {
     use RoomTrait, UserTrait, BookTrait;
-    public $bookings, $guests, $room_types;
+    public $guests, $room_types;
 
     public function render()
     {
         // Get Booking with room information
-        $this->bookings = $this->getBookings();
+        $bookings = $this->getBookings();
         $this->guests = $this->getGuests();
         $this->room_types = $this->getAllRoomTypes2();
-        return view('livewire.dashboard.admin.booking-manage-view');
+        return view('livewire.dashboard.admin.booking-manage-view',[
+            'bookings' => $bookings
+        ]);
     }
 
     public function toggleStatus($id){
