@@ -165,10 +165,10 @@
                                                             </div>	
                                                         </div>
                                                         <small>Special Requests</small>
-                                                        <p class="text-base"><b>{{ $lastReservation->special_requests ?? '' }}</b></p>	
+                                                        <p class="text-base"><b>{{ $lastReservation->special_requests ?? 'None' }}</b></p>	
                                                     </div>
 
-                                                    @if ($lastReservation->is_confirmed == 1)
+                                                    @if ($lastReservation->is_confirmed == 0)
                                                         {{-- <div class="mt-3 d-flex justify-center" wire:loading>
                                                             <img src="{{ asset('public/dash/images/loader.gif') }}" />
                                                             &nbsp;Sending...
