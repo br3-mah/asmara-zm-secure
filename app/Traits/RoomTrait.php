@@ -23,6 +23,10 @@ trait RoomTrait {
         return Room::with('staff')->with('room_types')->paginate(9);
     }
 
+    public function getAvailableRooms(){
+        return Room::where('is_available', 1)->with('staff')->with('room_types')->get();
+    }
+
     public function getAllRoomTypes2(){
         return RoomType::with('users')->get();
     }

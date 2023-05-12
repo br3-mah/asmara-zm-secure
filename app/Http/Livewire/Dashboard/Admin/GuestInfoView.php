@@ -19,6 +19,7 @@ class GuestInfoView extends Component
     public $inquiry_id = null;
     public $book_room_id;
     public $room;
+    public $rooms;
     public $reservation;
 
     public function mount($id){
@@ -32,10 +33,9 @@ class GuestInfoView extends Component
 
     public function render(){
         $bookings = $this->getCustomerBookings($this->user->guests->id);
-        $rooms = $this->getAllRooms();
+        $this->rooms = $this->getAvailableRooms();
         return view('livewire.dashboard.admin.guest-info-view',[
-            'bookings' => $bookings,
-            'rooms' => $rooms
+            'bookings' => $bookings
         ]);
     }
     public function bookRoom($id){
