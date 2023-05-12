@@ -18,10 +18,12 @@
                                             <span class="text-danger">*</span>
                                         </label>
                                         <select wire:model="book_room_id" class="default-select wide form-control" id="validationCustom05">
-                                            @forelse($rooms as $room)
+                                            @if (!empty($rooms->toArray()))
+                                                @forelse($rooms as $room)
                                                 <option value="{{ $room->id }}">{{ $room->id.'Room# '.$room->room_number.' | '.$room->floor }}</option>
                                             @empty
                                             @endforelse
+                                            @endif
                                         </select>
                                         <div class="invalid-feedback">
                                             Please select a one.
