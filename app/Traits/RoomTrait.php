@@ -20,7 +20,7 @@ trait RoomTrait {
     }
 
     public function getAllRooms(){
-        return Room::with('staff')->with('room_types')->get();
+        return Room::with('staff')->with('room_types')->paginate(9);
     }
 
     public function getAllRoomTypes2(){

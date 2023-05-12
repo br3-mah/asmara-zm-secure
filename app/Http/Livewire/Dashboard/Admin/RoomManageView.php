@@ -8,13 +8,15 @@ use Livewire\Component;
 class RoomManageView extends Component
 {
     use RoomTrait;
-    public $rooms, $room_types;
+    public $room_types;
 
     public function render()
     {
-        $this->rooms = $this->getAllRooms();
+        $rooms = $this->getAllRooms();
         $this->room_types = $this->getAllRoomTypes2();
-        return view('livewire.dashboard.admin.room-manage-section');
+        return view('livewire.dashboard.admin.room-manage-section',[
+            'rooms' => $rooms
+        ]);
     }
 
     public function toggleStatus($id){

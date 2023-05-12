@@ -20,16 +20,16 @@ class ReservationView extends Component
     public $inquiry_id = null;
     public $book_room_id;
     public $room;
-    public $rooms;
     public $reservation;
 
     public function render()
     {
 
-        $this->rooms = $this->getAllRooms();
+        $rooms = $this->getAllRooms();
         $inquiries = ReservationList::orderByDesc('created_at')->paginate(9);
         return view('livewire.dashboard.admin.reservation-view',[
-            'inquiries'=>$inquiries
+            'inquiries'=>$inquiries,
+            'rooms'=>$rooms
         ]);
     }
 

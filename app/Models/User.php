@@ -79,6 +79,11 @@ class User extends Authenticatable
         $data = User::where('id', $id)->first();
         return $data->fname.' '.$data->lname;
     }
+
+    public static function myEmail($id){
+        $data = User::where('id', $id)->first();
+        return $data->email;
+    }
     
     public function rooms(){
         return $this->hasMany(Room::class);
