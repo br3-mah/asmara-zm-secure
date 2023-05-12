@@ -35,6 +35,19 @@
 
     <!-- Styles -->
     @livewireStyles
+	<style>
+		.pagination svg {
+			height: 1rem;
+			width: 1rem;
+		}
+
+		@media (max-width: 767px) {
+			.pagination svg {
+				height: 0.875rem;
+				width: 0.875rem;
+			}
+		}
+	</style>
 </head>
 <body>
 
@@ -121,7 +134,8 @@
     <script src="{{	asset('public/dash/vendor/pickadate/picker.time.js')}}"></script>
     <script src="{{	asset('public/dash/vendor/pickadate/picker.date.js')}}"></script>
 
-
+	
+    <!-- Datatable -->
     <!-- Daterangepicker -->
     {{-- <script src="{{ asset('public/dash/js/plugins-init/bs-daterange-picker-init.js')}}"></script> --}}
     {{-- <script src="{{ asset('public/dash/js/plugins-init/clock-picker-init.js')}}"></script> --}}
@@ -131,9 +145,6 @@
 	<script src="{{asset('public/dash/vendor/moment/moment.min.js')}}"></script>
 
 	<script src="{{ asset('public/dash/js/custom.min.js')}}"></script>
-	{{-- <script src="{{ asset('public/dash/js/dlabnav-init.js')}}"></script> --}}
-	{{-- <script src="{{ asset('public/dash/js/demo.js')}}"></script> --}}
-	{{-- <script src="{{ asset('public/dash/js/styleSwitcher.js')}}"></script> --}}
 	<script>
 		function TravlCarousel()
 			{

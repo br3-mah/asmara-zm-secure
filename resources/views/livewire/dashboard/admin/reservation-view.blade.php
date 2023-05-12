@@ -165,8 +165,10 @@
                                     </table>
                                 </div>
                                 
-                                <div>
-                                    {{ $inquiries->links()}}
+                                <div class="flex justify-end">
+                                    <div class="pagination flex justify-center mt-8 text-xs sm:text-xs">
+                                        {{ $inquiries->links() }}
+                                    </div>
                                 </div>
                             </div>	
 
