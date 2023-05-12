@@ -27,12 +27,20 @@ trait BookTrait {
 
     // Get all Booking inquiries
     public function hasCurrentBooking($guest_id){
-        return Booking::where('guests_id', $guest_id)->exists();
+        return Booking::orderByDesc('created_at')->where('guests_id', $guest_id)->exists();
         // return Reservation::get()->paginate(10);
+    }
+
+    public function hasCurrentReservation($guest_id){
+        return ReservationList::orderByDesc('created_at')->where('guests_id', $guest_id)->exists();
     }
 
     public function getLastBooking($guest_id){
         return Booking::orderByDesc('created_at')->with('room.room_types')->where('guests_id', $guest_id)->first();
+    }
+
+    public function getLastReservation($guest_id){
+        return ReservationList::orderByDesc('created_at')->where('guests_id', $guest_id)->first();
     }
     
     // Get all Booking inquiries
