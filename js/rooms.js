@@ -19,17 +19,19 @@ $(function() {
                 if(response.code === 'success'){
                     toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
                     toastr.info(response.title, response.message);
-                    window.location.href = '../room-types';
+                    location.reload();
                 }
 
                 if(response.code === 'warning'){
                     toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
                     toastr.warning(response.title, response.message);
+                    location.reload();
                 }
 
                 if(response.code === 'error'){
                     toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
                     toastr.error(response.title, response.message);
+                    location.reload();
                 }
             },
             error: function(xhr, status, error) {
@@ -73,6 +75,7 @@ $(function() {
                 }
                 
                 $('.create-room-modal-lg').modal('hide');
+                location.reload();
             },
             error: function(xhr, status, error) {
                 // handle errors
@@ -113,6 +116,8 @@ $(function() {
                     toastr.options.closeHtml = '<button class="closebtn"><i class="bi bi-x"></i></button>';
                     toastr.error(response.title, response.message);
                 }
+
+                location.reload();
                 
             },
             error: function(xhr, status, error) {

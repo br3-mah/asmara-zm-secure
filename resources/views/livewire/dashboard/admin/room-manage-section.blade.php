@@ -35,7 +35,7 @@
                                     <div class="mt-3 flex justify-center" wire:loading>
                                         <img src="{{ asset('public/dash/images/loader.gif') }}" />
                                     </div>
-                                    <table wire:loading.remove wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
+                                    <table wire:loading.remove class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">

@@ -16,11 +16,11 @@ trait RoomTrait {
     }
 
     public function getAllBookedRooms(){
-        return Room::where('is_available', 0)->with('staff')->with('room_types')->get();
+        return Room::orderByDesc('created_at')->where('is_available', 0)->with('staff')->with('room_types')->get();
     }
 
     public function getAllRooms(){
-        return Room::with('staff')->with('room_types')->paginate(9);
+        return Room::orderByDesc('created_at')->with('staff')->with('room_types')->paginate(9);
     }
 
     public function getAvailableRooms(){
