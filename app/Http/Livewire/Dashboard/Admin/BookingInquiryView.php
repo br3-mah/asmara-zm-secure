@@ -14,8 +14,8 @@ class BookingInquiryView extends Component
 
     public function render()
     {
-        $this->inquiry = Inquiry::get();
-        $inquiries = Inquiry::paginate(9);
+        $this->inquiry = Inquiry::orderByDesc('created_at')->get();
+        $inquiries = Inquiry::orderByDesc('created_at')->paginate(9);
         return view('livewire.dashboard.admin.booking-inquiry-view',[
             'inquiries' => $inquiries
         ]);
