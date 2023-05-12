@@ -54,7 +54,7 @@
                                                     </div>
                                                 </th>
                                                 <th>Subject</th>
-                                                <th>Message</th>
+                                                {{-- <th>Message</th> --}}
                                                 <th>Email</th>
                                                 <th>Phone Number</th>
                                                 <th>Sent On</th>
@@ -80,9 +80,9 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="text-nowrap">
+                                                    {{-- <td class="text-nowrap">
                                                         <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->message }}</span>
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->email }}</span>
                                                     </td>
