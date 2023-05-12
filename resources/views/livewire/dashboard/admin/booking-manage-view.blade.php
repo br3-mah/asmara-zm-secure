@@ -33,7 +33,11 @@
                             <div class="tab-pane fade active show" id="AllRooms">
                                 <div class="table-responsive">
                                     @include('livewire.dashboard.admin.__partials.alerts.alerts')
-                                    <table wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
+                                    
+                                    <div class="mt-3 flex justify-center" wire:loading>
+                                        <img src="{{ asset('public/dash/images/loader.gif') }}" />
+                                    </div>
+                                    <table wire:loading.remove wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover table-responsive-lg" id="guestTable-all3">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
@@ -48,8 +52,6 @@
                                                 <th>Bed Type</th>
                                                 <th>Room Floor</th>
                                                 <th>Rate</th>
-                                                <th>Special Requests</th>
-                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -111,19 +113,15 @@
                                                             <span class="fs-16 font-w500">{{ $booking->room->floor ?? ''}}</span>
                                                         </div>
                                                     </td>
-                                                    <td>	
+                                                    <td class="text-lg">	
+                                                        <b>
                                                         K{{ $booking->room->room_types != null ? $booking->room->room_types->price : ''}}
                                                         <small class="fs-14 ms-2">/{{ $booking->room->room_types != null ? $booking->room->room_types->per : ''}}</small>
-                                                        
-                                                    </td>
-                                                    <td class="facility">
-                                                        <div>
-                                                            <span class="fs-16 comments">{{ $booking->room->room_types != null ? $booking->room->room_types->comments : 'None'}}</span>
-                                                        </div>
+                                                        </b>
                                                     </td>
                                                     <td>
                                                         @if ( $booking->room->is_available == 1)
-                                                            <button wire:click='toggleStatus({{ $booking->room->id}})' class="btn btn-success btn-md">Available</button>
+                                                            <button class="btn btn-success btn-md">Checked out</button>
                                                         @else
                                                             <button wire:click='checkOut({{ $booking->id}})' class="btn btn-danger btn-md">Checkout</button>
                                                         @endif
@@ -149,8 +147,10 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-                                    <div class="my-2">
-                                        {{ $bookings->links()}}
+                                    <div class="flex justify-end">
+                                        <div class="pagination flex justify-center mt-8 text-xs sm:text-xs">
+                                            {{ $bookings->links() }}
+                                        </div>
                                     </div>
                                 </div>	
                             </div>	

@@ -43,6 +43,8 @@
                         <div class="tab-content">	
                             <div class="tab-pane active show" id="AllGuest">
                                 <div class="table-responsive">
+
+                                    
                                     <table wire:poll.50000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
                                         <thead>
                                             <tr>
@@ -97,6 +99,11 @@
                                         </tbody>
                                     </table>
                                 </div>	
+                                <div class="flex justify-end">
+                                    <div class="pagination flex justify-center mt-8 text-xs sm:text-xs">
+                                        {{ $inquiries->links() }}
+                                    </div>
+                                </div>
                             </div>	
                             
                         </div>
@@ -107,5 +114,5 @@
     </div>
 
     {{-- Modal --}}
-    {{-- @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details') --}}
+    @include('livewire.dashboard.admin.__partials.contacts.__inquiry_details')
 </div>

@@ -44,7 +44,10 @@
                             <div class="tab-pane active show" id="AllGuest">
                                 <div class="table-responsive p-4">
                                     @include('livewire.dashboard.admin.__partials.alerts.alerts')
-                                    <table id="example5" wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg">
+                                    <div class="mt-3 flex justify-center" wire:loading>
+                                        <img src="{{ asset('public/dash/images/loader.gif') }}" />
+                                    </div>
+                                    <table wire:loading.remove id="example5" wire:ignore.self wire:poll.50000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">

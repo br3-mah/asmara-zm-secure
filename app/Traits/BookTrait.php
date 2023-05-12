@@ -44,7 +44,7 @@ trait BookTrait {
     public function getBookings(){
         return Booking::orderByDesc('created_at')
                     ->where('booking_status', 1)->with('room.room_types')
-                    ->with('guests.users')->paginate(5);
+                    ->with('guests.users')->paginate(9);
     }
 
     // Returns all booked rooms with booking information dates
