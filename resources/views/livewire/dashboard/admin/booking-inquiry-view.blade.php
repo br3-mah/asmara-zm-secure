@@ -71,7 +71,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="concierge-bx d-flex align-items-center">
-                                                            <div>
+                                                            <div style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">
                                                                 <h5 class="fs-16 mb-0 text-nowrap">
                                                                     <a class="text-black" href="javascript:void(0);">
                                                                         {{ $inq->subject }}
@@ -84,13 +84,13 @@
                                                         <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->message }}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{{ $inq->email }}</span>
+                                                        <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->email }}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{{ $inq->phone }}</span>
+                                                        <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->phone }}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{{ $inq->created_at->toFormattedDateString() }}</span>
+                                                        <span style="cursor:pointer" data-bs-toggle="modal" data-bs-target="#inquiryDetailModalLong" wire:click="viewMessageDetails({{$inq->id}})">{{ $inq->created_at->toFormattedDateString() }}</span>
                                                     </td>
                                                 </tr>
                                             @empty
