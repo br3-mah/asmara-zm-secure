@@ -27,10 +27,10 @@
 						<a class="nav-link" data-bs-toggle="tab" href="#notes">Notes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-bs-toggle="tab" href="#alerts">Alerts</a>
+						<a class="nav-link active" data-bs-toggle="tab" href="#alerts">Alerts</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" data-bs-toggle="tab" href="#chat">Chat</a>
+						<a class="nav-link" data-bs-toggle="tab" href="#chat">Chat</a>
 					</li>
 				</ul>
 				<div class="tab-content">
@@ -212,13 +212,13 @@
 							</div>
 						</div>
 						<ul class="navbar-nav header-right">
-							<li class="nav-item dropdown notification_dropdown">
+							{{-- <li class="nav-item dropdown notification_dropdown">
 								<a class="nav-link" href="javascript:void(0);">
 								<svg xmlns="http://www.w3.org/2000/svg" width="26.309" height="23.678" viewBox="0 0 26.309 23.678">
 								  <path id="Path_1955" data-name="Path 1955" d="M163.217,78.043a7.409,7.409,0,0,1,10.5-10.454l.506.506.507-.506a7.409,7.409,0,0,1,10.5,10.454L175.181,88.686a1.316,1.316,0,0,1-1.912,0Zm11.008,7.823,9.1-9.632.027-.027a4.779,4.779,0,1,0-6.759-6.757l-1.435,1.437a1.317,1.317,0,0,1-1.861,0l-1.437-1.437a4.778,4.778,0,0,0-6.758,6.757l.026.027Z" transform="translate(-161.07 -65.42)" fill="#135846" fill-rule="evenodd"/>
 								</svg>
 								</a>
-							</li>	
+							</li>	 --}}
 							<li class="nav-item dropdown notification_dropdown">
 								<a class="nav-link bell-link " href="javascript:void(0);">
 								<svg xmlns="http://www.w3.org/2000/svg" width="26.667" height="24" viewBox="0 0 26.667 24">
