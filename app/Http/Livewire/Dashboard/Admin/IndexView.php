@@ -12,13 +12,13 @@ use Livewire\Component;
 class IndexView extends Component
 {
     use BookTrait;
-    public $bookings;
     public $tt_booking, $tt_inquiries, $checkin, $checkout, $tt_rooms_available, $tt_rooms_booked, $tt_total_site_visitors;
 
     public function render()
     {
         
-        $this->bookings = $this->getBookings();
+        $bookings = $this->getBookings();
+        
         $this->tt_booking = Room::where('is_available', 0)->count();
         $this->tt_inquiries = ReservationList::count();
         $this->checkin = Room::where('is_available', 0)->count();
@@ -27,6 +27,8 @@ class IndexView extends Component
         $this->tt_rooms_booked =  Room::where('is_available', 1)->count();
         $this->tt_total_site_visitors = User::count();
 
-        return view('livewire.dashboard.admin.index-view');
+        return view('livewire.dashboard.admin.index-view',[
+            'bookings' => $bookings
+        ]);
     }
 }

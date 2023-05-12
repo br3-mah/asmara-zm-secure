@@ -139,6 +139,7 @@
 										<div class="text-center event-calender border-bottom booking-calender">
 											<input type='text' class="form-control d-none " id='datetimepicker1' />
 										</div>
+										
 										@forelse ($bookings as $booking)	
 										<div class="rooms mt-3 d-flex align-items-center justify-content-between flex-wrap">
 											<div class="d-flex align-items-center mb-3">
