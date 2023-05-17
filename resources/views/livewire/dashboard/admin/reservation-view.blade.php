@@ -115,7 +115,7 @@
                                                         </a>
                                                     </td>
                                                     <td class="request">
-                                                        <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
+                                                        <a class="text-truncate" target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
                                                         {{ $inq->special_requests ?? '' }}
                                                         </a>
                                                     </td>
