@@ -24,7 +24,6 @@ class ReservationView extends Component
 
     public function render()
     {
-
         $rooms = $this->getAvailableRooms();
         $inquiries = ReservationList::orderByDesc('created_at')->paginate(9);
         return view('livewire.dashboard.admin.reservation-view',[

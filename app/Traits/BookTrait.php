@@ -152,17 +152,19 @@ trait BookTrait {
     public function saveBooking($data){
         $admin = User::first();
         // Enter reservation information
-        $reserv = ReservationList::where('id', $data['reserve_id'])->first();
+        if (isset($data['reserve_id'])) {
+            $reserv = ReservationList::where('id', $data['reserve_id'])->first();
+        }
         $theroom = Room::with('room_types')->where('id', $data['room_id'])->first();
         // $in = $this->convertNormal($data['in']);
         // $out = $this->convertNormal($data['out']);
         $nights = $this->numOfDays($data['in'], $data['out']);
         $total_bill = $nights * RoomType::where('name', $theroom->room_types->name)->first()->price;
-
+        
         $book = Booking::create([
             'guests_id' => $data['guest_id'],
             'rooms_id' => $data['room_id'],
-            'reservations_id' => $data['reserve_id'],
+            'reservations_id' => isset($data['reserve_id']) ? $data['reserve_id'] : null,
             'user_id' => auth()->user()->id,
             'booking_code' => Str::orderedUuid(4),
             'checkin_date' => $data['in'],
@@ -180,7 +182,7 @@ trait BookTrait {
             'msg' => "Booked Room. Date checked in ".$data['in']." and Date of Check-out ".$data['out'],
             'type' => 'booking',
             'room_type' => $theroom->room_types->name,
-            'special_req' => $reserv->special_requests ?? 'None',
+            'special_req' =>  isset($data['reserve_id']) ?  $reserv->special_requests : 'None',
             'in' => $data['in'],
             'out' => $data['out'],
             'bill' => 'K'.$total_bill,

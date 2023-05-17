@@ -22,6 +22,9 @@ trait RoomTrait {
     public function getAllRooms(){
         return Room::orderByDesc('created_at')->with('staff')->with('room_types')->paginate(9);
     }
+    public function getAllRooms2(){
+        return Room::orderByDesc('created_at')->with('staff')->with('room_types')->get();
+    }
 
     public function getAvailableRooms(){
         return Room::where('is_available', 1)->with('staff')->with('room_types')->get();

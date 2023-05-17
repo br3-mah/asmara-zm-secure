@@ -15,6 +15,7 @@ class StaffUserSeeder extends Seeder
      */
     public function run()
     {
+        // peace2u2.@123 on localhost
         User::create([
             'fname' => 'Front',
             'lname' => 'Desk',
