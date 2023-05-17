@@ -59,14 +59,14 @@
                                                 <th>Order Date</th>
                                                 <th>Check In</th>
                                                 <th>Check Out</th>
-                                                <th>Special Request</th>
+                                                {{-- <th>Special Request</th> --}}
                                                 <th class="text-center">Status</th>
                                                 <th class="bg-none"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @forelse ($inquiries as $inq)
-                                                <tr>
+                                                <tr title="View More Details">
                                                     <td>
                                                         <div class="form-check style-1">
                                                         <input class="form-check-input" type="checkbox" value="">
@@ -114,11 +114,11 @@
                                                             </h5>
                                                         </a>
                                                     </td>
-                                                    <td class="request">
+                                                    {{-- <td class="request">
                                                         <a class="text-truncate" target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
                                                         {{ $inq->special_requests ?? '' }}
                                                         </a>
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
 
                                                         @if($inq->is_confirmed == 1)
