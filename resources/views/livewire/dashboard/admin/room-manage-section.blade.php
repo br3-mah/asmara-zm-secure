@@ -114,8 +114,8 @@
                                                                 </svg>
                                                             </a>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0);">Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                                                {{-- <a class="dropdown-item" href="javascript:void(0);">Edit</a> --}}
+                                                                <a class="dropdown-item"  href="javascript:void(0);">Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
