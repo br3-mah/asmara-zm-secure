@@ -7,15 +7,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-bs-toggle="tab" href="#AllRooms">System Users</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#ActiveEmployee">Active Room Types</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#InactiveEmployee">Inactive Room Types</a>
-                    </li> --}}
                 </ul>
-                
-
+            </div>
+            <div class="d-flex align-items-center mb-2"> 
+                <button data-bs-toggle="modal" wire:click="deleteUsers()" class="btn btn-danger">
+                    x Delete
+                </button>
+                <button data-bs-toggle="modal" class="btn btn-warning">
+                    + New Guests
+                </button>
             </div>
         </div>
         <div class="row mt-4">
@@ -38,11 +38,11 @@
                                     <table id="example3" class="p-4 table card-table display mb-4 shadow-hover table-responsive-lg">
                                         <thead>
                                             <tr>
-                                                <th class="bg-none">
+                                                {{-- <th class="bg-none">
                                                     <div class="form-check style-1">
-                                                      <input class="form-check-input" type="checkbox" value="" id="checkAll3">
+                                                      <input class="form-check-input"type="checkbox" value="" id="checkAll3">
                                                     </div>
-                                                </th>
+                                                </th> --}}
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Email Verified On</th>
@@ -55,7 +55,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $user->id }}" wire:model="selectedUsers">
                                                         </div>
                                                     </td>
                                                     <td class="">
@@ -85,9 +85,6 @@
                                                                     <path d="M4 12C4 12.5523 4.44772 13 5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12Z" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                                                 </svg>
                                                             </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="{{ route('delete-room-type', $user->id)}}">Delete</a>
-                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>

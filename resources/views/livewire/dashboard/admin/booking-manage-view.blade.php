@@ -16,6 +16,11 @@
                 </ul>
             </div>
             <div class="d-flex align-items-center mb-2"> 
+                @if(!empty($selectedBookings))
+                <button data-bs-toggle="modal" wire:click="deleteBookings()" class="btn btn-danger">
+                    x Delete
+                </button>
+                @endif
                 <button data-bs-toggle="modal" data-bs-target=".new-booking-modal-lg" class="btn btn-secondary">
                     + New Booking
                 </button>
@@ -55,7 +60,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $booking->id }}" wire:model="selectedBookings">
                                                         </div>
                                                     </td>
                                                     <td>

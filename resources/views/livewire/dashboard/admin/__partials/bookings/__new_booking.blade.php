@@ -3,9 +3,7 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h5 class="modal-title text-white">Record New Booking</h5>
-                <button type="button" class="btn-close text-white" data-bs-dismiss="modal">
-                    x
-                </button>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal">x</button>
             </div>
             <form id="create-room-form" class="needs-validation" validate enctype="multipart/form-data">
                 @csrf
@@ -61,7 +59,7 @@
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">
                                             Arriving On
                                         </label>
-                                        <input type="text" class="form-control input-default" id="validationCustom01"  wire:model.defer="checkin_date"  placeholder="yyyy-mm-dd" required>
+                                        <input wire:ignore.self type="text" name="datepicker" class="datepicker-default form-control" wire:model.defer="checkin_date"  placeholder="yyyy-mm-dd" required>
                                         <div class="invalid-feedback">
                                             Please enter a room type name.
                                         </div>
@@ -96,7 +94,7 @@
                                         <label class="col-lg-6 col-form-label" for="validationCustom01">Departing On
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="date form-control" id="validationCustom01" wire:model.defer="checkout_date"  placeholder="yyyy-mm-dd" required>
+                                        <input wire:ignore.self type="text" name="datepicker" class="datepicker-default form-control" id="datepicker" wire:model.defer="checkout_date"  placeholder="yyyy-mm-dd" required>
                                         <div class="invalid-feedback">
                                             Date of checking out
                                         </div>
@@ -125,6 +123,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
 <script src="js/rooms.js"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
@@ -142,4 +141,4 @@
             reader.readAsDataURL(this.files[0]); 
         });
     });
-</script>   
+  </script>  

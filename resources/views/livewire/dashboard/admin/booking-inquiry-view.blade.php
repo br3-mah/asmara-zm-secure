@@ -7,33 +7,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-bs-toggle="tab" href="#AllGuest">All Contact Inquiries</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#Pending">Pending</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#Booked">Booked</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#Canceled">Canceled</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#Refund">Refund</a>
-                    </li> --}}
                 </ul>
             </div>
             <div class="d-flex align-items-center mb-2 flex-wrap"> 
-                {{-- <div class="guest-calendar">
-                    <div id="reportrange" class="pull-right reportrange" style="width: 100%">
-                        <span></span><b class="caret"></b>
-                        <i class="fas fa-chevron-down ms-3"></i>
-                    </div>
-                </div>
-                <div class="newest ms-3">
-                    <select class="default-select">
-                        <option>Newest</option>
-                        <option>Oldest</option>
-                    </select>
-                </div>	 --}}
+                @if (!empty($selectedItems))
+                <button data-bs-toggle="modal" wire:click="deleteInquiries()" class="btn btn-danger">
+                    Delete
+                </button>
+                @endif
             </div>
         </div>
         <div class="row mt-4">
@@ -45,13 +26,13 @@
                                 <div class="table-responsive">
 
                                     
-                                    <table wire:poll.50000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
+                                    <table wire:poll.100000ms class="table card-table display mb-4 shadow-hover default-table table-responsive-lg" id="guestTable-all">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
-                                                    <div class="form-check style-1">
+                                                    {{-- <div class="form-check style-1">
                                                       <input class="form-check-input" type="checkbox" value="" id="checkAll">
-                                                    </div>
+                                                    </div> --}}
                                                 </th>
                                                 <th>Subject</th>
                                                 {{-- <th>Message</th> --}}
@@ -66,7 +47,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $inq->id }}" wire:model="selectedItems">
                                                         </div>
                                                     </td>
                                                     <td>

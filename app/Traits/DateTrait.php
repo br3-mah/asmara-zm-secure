@@ -5,24 +5,28 @@ namespace App\Traits;
 use DateTime;
 
 trait DateTrait {
-    public function convertNormal($dateString){
 
-        if (strpos($dateString, '-') !== false) {
-            return $dateString;
-        }else{
-            
-            if(strpos($dateString, '/') === false){
-                $date = DateTime::createFromFormat('F d, Y', $dateString);
-                $formatted_date = $date->format('Y-m-d');
-                return $formatted_date; // Output: 2023-05-25
-            }else{
-                $date = DateTime::createFromFormat('m/d/Y', $dateString);
-                $formattedDate = $date->format('Y-m-d');
+    public function convertNormal($dateString){
         
-                return $formattedDate; // Output: 2023-03-02
+            
+            if (!preg_match('/[-\/]/', $dateString)) {
+                $formattedDate = date("Y-m-d", strtotime($dateString));
+                return $formattedDate;
+            }elseif (strpos($dateString, '-') !== false) {
+                return $dateString;
+            }else{
+                if(strpos($dateString, '/') === false){
+                    $date = DateTime::createFromFormat('F d, Y', $dateString);
+                    $formatted_date = $date->format('Y-m-d');
+                    return $formatted_date; // Output: 2023-05-25
+                }else{
+                    $date = DateTime::createFromFormat('m/d/Y', $dateString);
+                    $formattedDate = $date->format('Y-m-d');
+            
+                    return $formattedDate; // Output: 2023-03-02
+                }
             }
 
-        }
     }
 
     public function numOfDays($date1, $date2){

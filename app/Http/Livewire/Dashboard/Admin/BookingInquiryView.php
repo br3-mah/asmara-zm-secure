@@ -11,6 +11,7 @@ class BookingInquiryView extends Component
 {
     use BookTrait, WithPagination;
     public $contact_info, $inquiry;
+    public $selectedItems = [];
 
     public function render()
     {
@@ -39,5 +40,14 @@ class BookingInquiryView extends Component
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+    public function deleteInquiries()
+    {
+        Inquiry::where('id', $this->selectedItems)->delete();
+
+        // Clear the selection after deleting users
+        $this->selectedItems = [];
+        session()->flash('success', 'Inquiries deleted successfully.');
     }
 }

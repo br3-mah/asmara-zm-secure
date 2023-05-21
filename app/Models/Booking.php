@@ -20,8 +20,8 @@ class Booking extends Model
         'num_children',
         'booking_date',
         'total_price',
-        'payment_status',
-        'booking_status'
+        'payment_status', //Status changes when payment is recorded
+        'booking_status' //checkout status default is 1 is checkedin, 0 is checkedout
     ];
 
     public function users(){

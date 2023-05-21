@@ -53,11 +53,11 @@
 					</li>
 					<li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-025-dashboard"></i>
+							<i class="flaticon-025-info"></i>
 							<span class="nav-text">Customer Support</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="{{ route('chatbot') }}">Chatbot</a></li>
+							{{-- <li><a href="{{ route('chatbot') }}">Chatbot</a></li> --}}
 						</ul>
 					</li>
 					<li>
@@ -68,11 +68,11 @@
 					</li>
 					<li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-050-info"></i>
+							<i class="flaticon-050-info"></i>
 							<span class="nav-text">Settings</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="{{ route('account-settings') }}">Account Settings</a></li>
+							<li><a href="{{ url('user/profile') }}">Account Settings</a></li>
 						</ul>
 					</li>
 					<li>

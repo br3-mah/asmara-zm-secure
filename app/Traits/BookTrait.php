@@ -18,6 +18,18 @@ use Livewire\WithPagination;
 
 trait BookTrait {
     use UserTrait, RoomTrait, DateTrait, WithPagination;
+    
+    public function totalBookings(){
+        return Booking::count();
+    }
+
+    public function totalCheckIns(){
+        return Booking::whereNot('booking_status', 0)->count();
+    }
+    
+    public function totalCheckOuts(){
+        return Booking::where('booking_status', 0)->count();
+    }
 
     // Get all Booking inquiries
     public function getBookingInquiries(){
@@ -50,8 +62,7 @@ trait BookTrait {
 
     // Returns all booked rooms with booking information dates
     public function getBookings(){
-        return Booking::orderByDesc('created_at')
-                    ->where('booking_status', 1)->with('room.room_types')
+        return Booking::orderByDesc('created_at')->with('room.room_types')
                     ->with('guests.users')->paginate(9);
     }
 
@@ -197,6 +208,13 @@ trait BookTrait {
         }else{
             return false;
         }
+    }
+
+    public function toggleBookingStatus($book_id){
+        $booking = Booking::where('id', $book_id)->first();
+        $booking->booking_status = 0;
+        $booking->save();
+        return $booking;
     }
 
     public function acceptInquiry($id){

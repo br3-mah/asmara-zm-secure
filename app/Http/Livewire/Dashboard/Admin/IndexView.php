@@ -19,12 +19,12 @@ class IndexView extends Component
         
         $bookings = $this->getBookings();
         
-        $this->tt_booking = Room::where('is_available', 0)->count();
+        $this->tt_booking = $this->totalBookings();
         $this->tt_inquiries = ReservationList::count();
-        $this->checkin = Room::where('is_available', 0)->count();
-        $this->checkout =  Room::where('is_available', 1)->count();
+        $this->checkin = $this->totalCheckIns();
+        $this->checkout =  $this->totalCheckOuts();
         $this->tt_rooms_available =  Room::where('is_available', 1)->count();
-        $this->tt_rooms_booked =  Room::where('is_available', 1)->count();
+        $this->tt_rooms_booked =  $this->totalCheckIns();
         $this->tt_total_site_visitors = User::count();
 
         return view('livewire.dashboard.admin.index-view',[

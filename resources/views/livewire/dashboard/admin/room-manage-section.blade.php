@@ -15,13 +15,13 @@
                 </ul>
             </div>
             <div class="d-flex align-items-center mb-2"> 
+                @if (!empty($selectedRooms))
+                <button data-bs-toggle="modal" wire:click="deleteRooms()" class="btn btn-danger">
+                    x Delete
+                </button>
+                @endif
+                &nbsp;&nbsp;
                 <button data-bs-toggle="modal" data-bs-target=".create-room-modal-lg" class="btn btn-secondary">+ New Room</button>
-                {{-- <div class="newest ms-3">
-                    <select class="default-select">
-                        <option>Newest</option>
-                        <option>Oldest</option>
-                    </select>
-                </div>	 --}}
             </div>
         </div>
         <div class="row mt-4">
@@ -39,9 +39,9 @@
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
-                                                    <div class="form-check style-1">
+                                                    {{-- <div class="form-check style-1">
                                                       <input class="form-check-input" type="checkbox" value="" id="checkAll3">
-                                                    </div>
+                                                    </div> --}}
                                                 </th>
                                                 <th>Room Image</th>
                                                 <th>Room Number</th>
@@ -58,7 +58,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $room->id }}" wire:model="selectedRooms">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -104,7 +104,7 @@
                                                             <button wire:click='toggleStatus({{$room->id}})' class="btn btn-danger btn-md">Booked</button>
                                                         @endif
                                                     </td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <div class="dropdown dropend">
                                                             <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,11 +114,11 @@
                                                                 </svg>
                                                             </a>
                                                             <div class="dropdown-menu">
-                                                                {{-- <a class="dropdown-item" href="javascript:void(0);">Edit</a> --}}
+                                                                <a class="dropdown-item" href="javascript:void(0);">Edit</a>
                                                                 <a class="dropdown-item"  href="javascript:void(0);">Delete</a>
                                                             </div>
                                                         </div>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @empty
                                                 

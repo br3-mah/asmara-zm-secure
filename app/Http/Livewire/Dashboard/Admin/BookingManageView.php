@@ -18,6 +18,7 @@ class BookingManageView extends Component
     public $guests, $room_types, $rooms;
     public $country, $fname, $checkin_date, $checkout_date, $num_adults, $num_children;
     public $lname, $email, $message, $user, $book_room_id, $room, $reservation;
+    public $selectedBookings = [];
 
     public function render()
     {
@@ -40,12 +41,14 @@ class BookingManageView extends Component
     }
 
     public function checkOut($id){
-        $booking = Booking::where('id', $id)->first();
-        $booking->booking_status = 0;
-        $booking->save();
-
-        $this->toggleRoomStatus($booking->rooms_id);
-        session()->flash('success', 'Room successfully booked.');
+        try {
+            $booking = $this->toggleBookingStatus($id);
+            $this->toggleRoomStatus($booking->rooms_id);
+            session()->flash('success', 'Checkout Successfully.');
+        } catch (\Throwable $th) {
+            session()->flash('error', 'Oh, Something went wrong, check your connection and try again.');
+            // dd($th);
+        }
     }
     
     public function makeBooking(){
@@ -102,5 +105,18 @@ class BookingManageView extends Component
             return $check;
         }
         
+    }
+
+    public function deleteBookings()
+    {
+        foreach($this->selectedBookings as $b){
+            $book = Booking::where('id', $b)->first();
+            $this->toggleRoomStatus($book->rooms_id);
+        }
+        Booking::whereIn('id', $this->selectedBookings)->delete();
+
+        // Clear the selection after deleting users
+        $this->selectedBookings = [];
+        session()->flash('message', 'Bookings deleted successfully.');
     }
 }
