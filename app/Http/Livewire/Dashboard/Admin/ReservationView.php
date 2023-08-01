@@ -92,10 +92,10 @@ class ReservationView extends Component
 
     public function deleteInquiries()
     {
-        foreach($this->selectedInquiries as $i){
-            $inq = ReservationList::where('id', $i)->first();
-            $this->toggleRoomStatus($inq->rooms_id);
-        }
+        // foreach($this->selectedInquiries as $i){
+        //     $inq = ReservationList::where('id', $i)->first();
+        //     $this->toggleRoomStatus($inq->rooms_id);
+        // }
         ReservationList::whereIn('id', $this->selectedInquiries)->delete();
 
         // Clear the selection after deleting users
