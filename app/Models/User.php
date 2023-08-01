@@ -77,12 +77,20 @@ class User extends Authenticatable
 
     public static function fullNames($id){
         $data = User::where('id', $id)->first();
-        return $data->fname.' '.$data->lname;
+        if($data !== null){
+            return $data->fname.' '.$data->lname;
+        }else{
+            return '';
+        }
     }
 
     public static function myEmail($id){
         $data = User::where('id', $id)->first();
-        return $data->email;
+        if($data !== null){
+            return $data->email;
+        }else{
+            return '';
+        }
     }
     
     public function rooms(){
