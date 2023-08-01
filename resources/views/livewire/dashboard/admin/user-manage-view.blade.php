@@ -38,11 +38,11 @@
                                     <table id="example3" class="p-4 table card-table display mb-4 shadow-hover table-responsive-lg">
                                         <thead>
                                             <tr>
-                                                {{-- <th class="bg-none">
+                                                <th class="bg-none">
                                                     <div class="form-check style-1">
-                                                      <input class="form-check-input"type="checkbox" value="" id="checkAll3">
+                                                      <input class="form-check-input"type="checkbox" value="" id="selectAllCheckbox" wire:model="selectAll">
                                                     </div>
-                                                </th> --}}
+                                                </th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Email Verified On</th>
@@ -105,4 +105,6 @@
 
     {{-- Modals --}}
     @include('livewire.dashboard.admin.__partials.rooms.__create-room-type')
+
+
 </div>
