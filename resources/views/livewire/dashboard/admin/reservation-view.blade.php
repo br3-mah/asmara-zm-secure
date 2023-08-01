@@ -64,7 +64,7 @@
                                                 <tr title="View More Details">
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="{{ $inquiries->id }}" wire:model="selectedInquiries">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $inq->id }}" wire:model="selectedInquiries">
                                                         </div>
                                                     </td>
                                                     <td>
