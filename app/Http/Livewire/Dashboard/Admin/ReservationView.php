@@ -21,11 +21,12 @@ class ReservationView extends Component
     public $book_room_id;
     public $room;
     public $reservation;
+    public $selectedInquiries = [];
 
     public function render()
     {
         $rooms = $this->getAvailableRooms();
-        $inquiries = ReservationList::orderByDesc('created_at')->paginate(9);
+        $inquiries = ReservationList::orderByDesc('created_at')->paginate(15);
         return view('livewire.dashboard.admin.reservation-view',[
             'inquiries'=>$inquiries,
             'rooms'=>$rooms
@@ -87,6 +88,19 @@ class ReservationView extends Component
         } catch (\Throwable $th) {
             session()->flash('error', 'Reservation response failed to send.');
         }
+    }
+
+    public function deleteInquiries()
+    {
+        foreach($this->selectedInquiries as $i){
+            $inq = ReservationList::where('id', $i)->first();
+            $this->toggleRoomStatus($inq->rooms_id);
+        }
+        ReservationList::whereIn('id', $this->selectedInquiries)->delete();
+
+        // Clear the selection after deleting users
+        $this->selectedInquiries = [];
+        session()->flash('message', 'Reservation deleted successfully.');
     }
 
     public function clear(){

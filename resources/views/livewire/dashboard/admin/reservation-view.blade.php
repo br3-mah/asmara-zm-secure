@@ -21,19 +21,13 @@
                     </li> --}}
                 </ul>
             </div>
-            <div class="d-flex align-items-center mb-2 flex-wrap"> 
-                {{-- <div class="guest-calendar">
-                    <div id="reportrange" class="pull-right reportrange" style="width: 100%">
-                        <span></span><b class="caret"></b>
-                        <i class="fas fa-chevron-down ms-3"></i>
-                    </div>
-                </div> --}}
-                {{-- <div class="newest ms-3">
-                    <select class="default-select">
-                        <option>Newest</option>
-                        <option>Oldest</option>
-                    </select>
-                </div>	 --}}
+
+            <div class="d-flex align-items-center mb-2"> 
+                @if(!empty($selectedInquiries))
+                <button data-bs-toggle="modal" wire:click="deleteInquiries()" class="btn btn-danger">
+                    x Remove
+                </button>
+                @endif
             </div>
         </div>
         <div class="row mt-4">
@@ -53,7 +47,7 @@
                                             <tr>
                                                 <th class="bg-none">
                                                     <div class="form-check style-1">
-                                                      <input class="form-check-input" type="checkbox" value="" id="checkAll">
+                                                        <input class="form-check-input" type="checkbox" value="" id="checkAll3">
                                                     </div>
                                                 </th>
                                                 <th>Guest</th>
@@ -70,7 +64,7 @@
                                                 <tr title="View More Details">
                                                     <td>
                                                         <div class="form-check style-1">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="{{ $inquiries->id }}" wire:model="selectedInquiries">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -710,5 +704,18 @@
     {{-- Modals --}}
     @include('livewire.dashboard.admin.__partials.bookings.__book_room')
     @include('livewire.dashboard.admin.__partials.bookings.__respond_reservation')
+    <script>
+        $(document).ready(function () {
+            // When the "Check All" checkbox is clicked
+            $("#checkAll3").on("click", function () {
+                // Get the state of the "Check All" checkbox
+                const isChecked = $(this).prop("checked");
+    
+                // Select all checkboxes with class "form-check-input" in the table
+                $(".form-check-input").prop("checked", isChecked);
+            });
+        });
+    </script>
+    
 </div>
 
