@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\ReservationList;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class VerifyEmails extends Command
@@ -27,9 +29,26 @@ class VerifyEmails extends Command
      */
     public function handle()
     {
-        $email = 'gaba1992@gmail.com';
-        $result = $this->verifyEmail($email);
-        $this->info($result);
+        $users = User::whereNot('email', 'admin@asmarahotelzm.com')
+        ->whereNot('email', 'frontoffice@asmarahotelzm.com')
+        ->whereNot('email', 'info@asmarahotelzm.com')->get();
+
+        foreach ($users as $user) {
+            $email = $user->email;
+            $result = $this->verifyEmail($user->email);
+            $this->info($result);
+            // Delete the user if the email mailbox does not exist
+            if (strpos($result, 'Mailbox does not exist') !== false) {
+                $user = User::where('email', $user->email)->first();
+                if ($user) {
+                    ReservationList::where('guests_id', $user->id)->delete();
+                    $user->delete();
+                    $this->info("User with email {$email} has been deleted.");
+                }
+            }else{
+                $this->info("All users are real.");
+            }
+        }
     }
 
     function isDisposableEmail($email)
