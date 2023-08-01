@@ -42,7 +42,7 @@ class UserManageView extends Component
 
     public function deleteUsers()
     {
-        // dd($this->selectedUsers);
+        dd($this->selectedUsers);
         User::whereIn('id', $this->selectedUsers)->delete();
 
         // Clear the selection after deleting users

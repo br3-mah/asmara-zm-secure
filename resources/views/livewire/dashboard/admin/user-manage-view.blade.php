@@ -92,8 +92,15 @@
                                                 
                                             @endforelse
                                         </tbody>
-                                    </table>   
+                                    </table>  
+                                    
+                                    
                                 </div>	
+                                <div class="flex justify-end">
+                                    <div class="pagination flex justify-center mt-8 text-xs sm:text-xs">
+                                        {{ $users->links() }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
