@@ -89,7 +89,7 @@ function verifyEmail($email)
     }
 
     $mxHost = $mxRecords[array_rand($mxRecords)];
-    $socket = @fsockopen($mxHost, 25, $errno, $errstr, $timeout);
+    $socket = @fsockopen($mxHost, 465, $errno, $errstr, $timeout);
 
     if (!$socket) {
         return "Failed to connect to the mail server.";
