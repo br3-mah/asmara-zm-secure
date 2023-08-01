@@ -13,15 +13,10 @@ class UserManageView extends Component
 
     public function render()
     {
-        $users = User::whereNot('id', 1)->paginate(50);
+        $users = User::whereNot('id', 1)->orderByDesc('id')->paginate(50);
         return view('livewire.dashboard.admin.user-manage-view',[
             'users' => $users
         ]);
-    }
-    public function getItemsProperty()
-    {
-        // Replace 'Item' with your actual model name
-        return User::whereNot('id', 1)->paginate(50);
     }
 
     public function updatedSelectAll()
@@ -32,6 +27,8 @@ class UserManageView extends Component
         if (!$this->selectAll) {
             $this->selectedUsers = User::whereNot('email', 'admin@asmarahotelzm.com')
                 ->whereNot('email', 'frontoffice@asmarahotelzm.com')
+                ->orderByDesc('id')
+                ->take(50)
                 ->pluck('id')->map(fn ($id) => (string)$id)->toArray();
             // dd($this->selectedUsers);
         } else {
