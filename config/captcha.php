@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'secret' => env('6LeFT3UnAAAAAOyCG_0MXL5sDf99xCtPSBtHS3DT'),
-    'sitekey' => env('6LeFT3UnAAAAAC--qvaFXA_0ga0WQbxdNMOY16TV'),
+    'secret' => env('NOCAPSEC'),
+    'sitekey' => env('NOCAPSITEKEY'),
     'options' => [
         'timeout' => 30,
     ],
