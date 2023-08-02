@@ -22,15 +22,14 @@ class UserManageView extends Component
     public function updatedSelectAll()
     {
         $this->selectAll = !$this->selectAll;
-
         
         if (!$this->selectAll) {
             $this->selectedUsers = User::whereNot('email', 'admin@asmarahotelzm.com')
                 ->whereNot('email', 'frontoffice@asmarahotelzm.com')
                 ->orderByDesc('id')
                 ->take(50)
-                ->pluck('id')->map(fn ($id) => (string)$id)->toArray();
-            // dd($this->selectedUsers);
+                ->pluck('email')->map(fn ($id) => (string)$id)->toArray();
+            dd($this->selectedUsers);
         } else {
             $this->selectedUsers = [];
             // dd('initialized');
