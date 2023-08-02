@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -62,6 +64,25 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url'
     ];
+
+    protected static function booted()
+    {
+        // Event listener for the 'created' event
+        static::created(function ($user) {
+            // Verify reCAPTCHA
+            $captchaResponse = request('g-recaptcha-response');
+
+            $validator = Validator::make(['g-recaptcha-response' => $captchaResponse], [
+                'g-recaptcha-response' => ['required', new NoCaptcha()],
+            ]);
+
+            if ($validator->fails()) {
+                // If reCAPTCHA verification fails, you can choose to delete the user
+                // or take any other appropriate actions.
+                $user->delete();
+            }
+        });
+    }
 
     public static function lastCheckInDate($id){
         $data = Booking::orderByDesc('created_at')
