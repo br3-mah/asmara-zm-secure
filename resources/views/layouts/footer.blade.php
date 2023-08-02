@@ -91,7 +91,9 @@
             <div class="col-xl-12 input-group-lg">
                 <textarea cols="50" name="special_requests" class="form-control mb-3 wide" placeholder="Any Special Requests?"></textarea>
             </div>
-                                                             
+            <div class="col-xl-12">
+                <div class="g-recaptcha" data-sitekey="6LeFT3UnAAAAAC--qvaFXA_0ga0WQbxdNMOY16TV"></div>
+            </div>                                          
             <div class="col-xl-12">
                 <button id="ogSubmit" type="submit" style="background-color: #ff7b00" class="boxed-btn3">
                     Inquire Now
@@ -161,6 +163,7 @@
 <script src="js/smtp.js"></script>
 
 <script src="js/main.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
     

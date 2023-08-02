@@ -5,7 +5,11 @@ $('#test-form').submit(function(event) {
     $('#submitting').show();
     $('#ogSubmit').hide();
     event.preventDefault(); // prevent the form from submitting normally
-
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse === '') {
+      alert('Please complete the reCAPTCHA.');
+      return;
+    }
     var formData = $(this).serialize(); // serialize the form data
 
     $.ajax({
