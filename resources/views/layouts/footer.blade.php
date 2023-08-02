@@ -11,8 +11,8 @@
        {{-- <h3>Check Availability</h3> --}}
          <div class="row">           
             <div class="col-xl-12">
-                <select name="country" class="form-select wide" id="default-select" class="">
-                    <option value="0" data-display="Country"></option>
+                <select name="country" class="form-select wide" id="default-select" class="" required>
+                    <option value=" " data-display="Country"></option>
                     <option value="Afghanistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -44,25 +44,24 @@
                 </select>
             </div>
             <div class="col-xl-6 input-group-lg">
-                <input name="fname" class="form-control mb-4" placeholder="First Name" />
+                <input name="fname" class="form-control mb-4" placeholder="First Name" required/>
             </div>
             <div class="col-xl-6 input-group-lg">
-                <input name="lname" class="form-control mb-4" placeholder="Last Name" />
+                <input name="lname" class="form-control mb-4" placeholder="Last Name" required/>
             </div>
             <div class="col-xl-6 input-group-lg">
-                <input name="email" class="form-control" placeholder="Your Email" />
+                <input name="email" class="form-control" placeholder="Your Email" required/>
             </div>
             <div class="col-xl-6">
-                <input name="check_in_date" id="datepicker" placeholder="Check in date" />
+                <input name="check_in_date" id="datepicker" placeholder="Check in date" required/>
             </div>
             <div class="col-xl-6">
-                <select name="adult_num" class="form-select wide" id="default-select" class="">
-                    <option value="0" data-display="Adult"></option>
+                <select name="adult_num" class="form-select wide" id="default-select" class="" required>
+                    <option value=" " data-display="Adult"></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="0">None</option>
                 </select>
             </div>
             <div class="col-xl-6">
@@ -71,11 +70,11 @@
             <div class="col-xl-6">
                 <select name="children_num" class="form-select wide" id="default-select" class="">
                     <option value="0" data-display="Children"></option>
+                    <option value="0">None</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="0">None</option>
                 </select>
             </div>
             <div class="col-xl-6">
