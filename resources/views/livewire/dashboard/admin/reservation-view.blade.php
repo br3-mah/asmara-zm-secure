@@ -51,6 +51,8 @@
                                                     </div>
                                                 </th>
                                                 <th>Guest</th>
+                                                <th>Phone#</th>
+                                                <th>Country</th>
                                                 <th>Order Date</th>
                                                 <th>Check In</th>
                                                 <th>Check Out</th>
@@ -75,6 +77,21 @@
                                                                 <small class="fs-16 mb-0 text-nowrap"><a href="mailto:{{ App\Models\User::myEmail($inq->guests_id) }}" class="text-black" target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">{{ App\Models\User::myEmail($inq->guests_id) }}</a></small>
                                                             </div>
                                                         </div>
+                                                    </td>
+                                                    <td class="text-nowrap">
+                                                        <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
+                                                            <span>{{ App\Models\User::myPhone($inq->guests_id) }}</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-nowrap">
+                                                        <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
+                                                            <span>{{ App\Models\User::myPhone($inq->guests_id) }}</span>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-nowrap">
+                                                        <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
+                                                            <span>{{ App\Models\User::myCountry($inq->guests_id) }}</span>
+                                                        </a>
                                                     </td>
                                                     <td class="text-nowrap">
                                                         <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">

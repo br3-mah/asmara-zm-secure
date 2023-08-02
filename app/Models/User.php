@@ -73,12 +73,13 @@ class User extends Authenticatable
             $captchaResponse = request('g-recaptcha-response');
 
             $validator = Validator::make(['g-recaptcha-response' => $captchaResponse], [
-                'g-recaptcha-response' => ['required', new NoCaptcha()],
+                'g-recaptcha-response' => 'required|captcha',
             ]);
 
             if ($validator->fails()) {
                 // If reCAPTCHA verification fails, you can choose to delete the user
                 // or take any other appropriate actions.
+                Guest::where('user_id', $user->id)->delete();
                 $user->delete();
             }
         });
@@ -109,6 +110,24 @@ class User extends Authenticatable
         $data = User::where('id', $id)->first();
         if($data !== null){
             return $data->email;
+        }else{
+            return '';
+        }
+    }
+
+    public static function myPhone($id){
+        $data = Guest::where('user_id', $id)->first();
+        if($data !== null){
+            return $data->phone_number;
+        }else{
+            return '';
+        }
+    }
+
+    public static function myCountry($id){
+        $data = Guest::where('user_id', $id)->first();
+        if($data !== null){
+            return $data->country;
         }else{
             return '';
         }

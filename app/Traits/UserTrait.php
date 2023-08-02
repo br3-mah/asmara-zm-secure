@@ -29,7 +29,8 @@ trait UserTrait{
                 
                 Guest::create([
                     'user_id' => $user->id,
-                    'country' => $request->input('country')
+                    'country' => $request->input('country'),
+                    'phone_number' => $request->input('phone')
                 ]);
                 return $user;
             } catch (\Throwable $th) {
