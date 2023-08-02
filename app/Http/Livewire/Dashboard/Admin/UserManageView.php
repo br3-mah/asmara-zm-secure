@@ -19,21 +19,21 @@ class UserManageView extends Component
         ]);
     }
 
-    public function updatedSelectAll()
-    {
-        $this->selectAll = !$this->selectAll;
+    // public function updatedSelectAll()
+    // {
+    //     $this->selectAll = !$this->selectAll;
         
-        if (!$this->selectAll) {
-            $this->selectedUsers = User::whereNot('email', 'admin@asmarahotelzm.com')
-                ->whereNot('email', 'frontoffice@asmarahotelzm.com')
-                ->take(500)
-                ->pluck('id','email')->map(fn ($id) => (string)$id)->toArray();
-            // dd($this->selectedUsers);
-        } else {
-            $this->selectedUsers = [];
-            // dd('initialized');
-        }
-    }
+    //     if (!$this->selectAll) {
+    //         $this->selectedUsers = User::whereNot('email', 'admin@asmarahotelzm.com')
+    //             ->whereNot('email', 'frontoffice@asmarahotelzm.com')
+    //             ->take(500)
+    //             ->pluck('id','email')->map(fn ($id) => (string)$id)->toArray();
+    //         dd($this->selectedUsers);
+    //     } else {
+    //         $this->selectedUsers = [];
+    //         // dd('initialized');
+    //     }
+    // }
 
     public function deleteUsers()
     {
