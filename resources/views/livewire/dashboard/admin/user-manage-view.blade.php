@@ -35,7 +35,7 @@
                                             {{ session('error') }}
                                         </div>
                                     @endif
-                                    <table id="example3" class="p-4 table card-table display mb-4 shadow-hover table-responsive-lg">
+                                    <table id="example5" class="p-4 table card-table display mb-4 shadow-hover table-responsive-lg">
                                         <thead>
                                             <tr>
                                                 <th class="bg-none">
