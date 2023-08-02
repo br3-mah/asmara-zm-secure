@@ -28,7 +28,7 @@ class UserManageView extends Component
                 ->whereNot('email', 'frontoffice@asmarahotelzm.com')
                 ->take(500)
                 ->pluck('id','email')->map(fn ($id) => (string)$id)->toArray();
-            dd($this->selectedUsers);
+            // dd($this->selectedUsers);
         } else {
             $this->selectedUsers = [];
             // dd('initialized');
