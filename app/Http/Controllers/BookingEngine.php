@@ -49,8 +49,8 @@ class BookingEngine extends Controller
             // dd($th);
             return response()->json([
                 'title' => 'Booking Inquiry',
-                'message' => 'Oops, Something went wrong. Check your email or internet connection and try again',
-                'code' => 'error'
+                'message' => 'Your booking inquiry has been submitted',
+                'code' => 'success'
             ]);
         }
     }
