@@ -1,15 +1,18 @@
 
 // Check room availability
 $('#test-form').submit(function(event) {
-    
-    $('#submitting').show();
-    $('#ogSubmit').hide();
+
     event.preventDefault(); // prevent the form from submitting normally
     const recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse === '') {
       alert('Please complete the reCAPTCHA.');
       event.preventDefault();
+    }else{
+        
+        $('#submitting').show();
+        $('#ogSubmit').hide();
     }
+
     var formData = $(this).serialize(); // serialize the form data
 
     $.ajax({
