@@ -85,11 +85,6 @@
                                                     </td>
                                                     <td class="text-nowrap">
                                                         <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
-                                                            <span>{{ App\Models\User::myPhone($inq->guests_id) }}</span>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-nowrap">
-                                                        <a target="_blank" href="{{ route('guest-info', $inq->guests_id) }}">
                                                             <span>{{ App\Models\User::myCountry($inq->guests_id) }}</span>
                                                         </a>
                                                     </td>
