@@ -85,6 +85,7 @@ class BookingManageView extends Component
         $check = User::where('email', $this->email)->first();
         if($check == null){
             try {
+
                 $user = User::create([
                     'fname' => $this->fname,
                     'lname' => $this->lname,

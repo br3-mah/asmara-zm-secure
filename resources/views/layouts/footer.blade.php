@@ -93,6 +93,7 @@
             </div>
             <div class="col-xl-12">
                 <div class="g-recaptcha" data-sitekey="6LeFT3UnAAAAAC--qvaFXA_0ga0WQbxdNMOY16TV"></div>
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
             </div>                                          
             <div class="col-xl-12">
                 <button id="ogSubmit" type="submit" style="background-color: #ff7b00" class="boxed-btn3">

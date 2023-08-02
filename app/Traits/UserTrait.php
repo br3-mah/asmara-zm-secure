@@ -13,6 +13,12 @@ trait UserTrait{
         $check = User::where('email', $request->input('email'))->first();
         if($check == null){
             try {
+                
+                $request->validate([
+                    // Your other form field validation rules...
+                    'g-recaptcha-response' => 'required|captcha',
+                ]);
+                
                 $user = User::create([
                     'fname' => $request->input('fname'),
                     'lname' => $request->input('lname'),

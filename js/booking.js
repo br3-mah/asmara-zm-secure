@@ -8,7 +8,7 @@ $('#test-form').submit(function(event) {
     const recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse === '') {
       alert('Please complete the reCAPTCHA.');
-      return;
+      event.preventDefault();
     }
     var formData = $(this).serialize(); // serialize the form data
 
